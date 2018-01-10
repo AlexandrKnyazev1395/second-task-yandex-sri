@@ -1,48 +1,84 @@
 import React, { Component } from 'react';
 
-import testData from './testData';
+import testDataFloors from './testDataFloors';
+import FloorRow from './FloorRow';
+import RoomRow from './RoomRow/';
+import DateAndHoursRow from './DateAndHoursRow';
 
-import './index.css'
+import './mainPage.css';
 
-export default class Header extends Component {
+export default class MainPage extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-       data: testData
+      data: testDataFloors,
     }
   }
-  
-  createSchedule = () => {
-    let data = this.state.data;
-    let scheduleArray = [];
-    for(let i = 0; i < data.length; i++) {
-      
-      let rooms = data[i].rooms.map((el) => {
-        return (
-          <div>
-            {el}
-          </div>
-        ) 
-      });
-
-      scheduleArray.push(
-        <div className="floor">
-          <div>{data[i].name}</div>
-          { rooms }
-        </div>
-      )
-    }
-
-  }
-
   render() {
-    const schedule = this.createSchedule();
     return (
-      <div id="mainPage">
-        
+      <div>
+        <RoomShedule data={this.state.data} />
       </div>
     )
   }
 }
+
+class RoomShedule extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      startHour: 8,
+      endHour: 23
+    }
+  }
+
+  makeRows = () => {
+    const { startHour, endHour } = this.state;
+
+    const data = this.props.data;
+    let result = [];
+
+    result.push(
+      <DateAndHoursRow
+        key="date_and_hours_row"
+        startHour={startHour}
+        endHour={endHour}
+      />
+    );
+
+    for (let i = 0; i < data.length; i++) {
+      result.push(
+        <FloorRow
+          key={`${data[i].name}_${i}`}
+          floorName={data[i].name}
+          startHour={startHour}
+          endHour={endHour} 
+        />
+      )
+      for (let y = 0; y < data[i].rooms.length; y++) {
+        result.push(
+          <RoomRow
+            key={`${data[i].rooms[y].name}_${i}`}
+            room={data[i].rooms[y]}
+            startHour={startHour}
+            endHour={endHour}
+          />
+        )
+      }
+    }
+    return result;
+  }
+
+  render() {
+    const rows = this.makeRows();
+    return (
+      <div className="roomSchedule">
+        {rows}
+      </div>
+    )
+  }
+}
+
 
 

@@ -8,9 +8,11 @@ export default class Header extends Component {
   render() {
     return (
       <div id="header">
-        <img src={logo} height={30}/>
-        <button class="button_create-event">
-          Создать встречу
+        <img alt="logo of application" src={logo} height={24.6} />
+        <button className="button_create-event">
+          <span>
+            Создать встречу
+          </span>
         </button>
       </div>
     )
