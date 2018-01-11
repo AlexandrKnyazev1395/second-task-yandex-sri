@@ -13,7 +13,7 @@ class HoursColumn extends Component {
         hour = `${i}.00`
       }
       hours.push(
-        <div key={{i} +"_hour"} className="hour">
+        <div key={ i +"_hour"} className="hour">
           {hour}
         </div>
       )

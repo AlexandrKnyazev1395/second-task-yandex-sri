@@ -35,7 +35,7 @@ export default class EmptyTime extends Component {
       >
         {this.state.isHovered && isShowPlus
           ? <div className="pluseSign"> &#43; </div>
-          : <null />
+          : null
         }
 
       </div>

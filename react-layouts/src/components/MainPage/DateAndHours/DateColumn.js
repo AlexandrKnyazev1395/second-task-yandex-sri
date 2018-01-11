@@ -146,7 +146,7 @@ class DateColumn extends Component {
             <img alt="arrow previous date" src={arrowLeft} />
           </div>
           :
-          <null />
+          null
         }
 
         <div className="choosedDate" onClick={this.handleChoosedDateClick}>
@@ -170,7 +170,7 @@ class DateColumn extends Component {
               />
             </div>
             :
-            <null />
+            null
           }
         </div>
         {showNextDateButton
@@ -179,7 +179,7 @@ class DateColumn extends Component {
             <img alt="arrow next date" src={arrowRight} />
           </div>
           :
-          <null />
+          null
         }
 
       </div>

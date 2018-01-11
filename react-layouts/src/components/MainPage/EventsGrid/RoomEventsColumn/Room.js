@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 import Event from './Event';
 import EmptyTime from './EmptyTime';
@@ -7,16 +8,17 @@ const START_HOUR = 8;
 const END_HOUR = 23;
 
 export default class Room extends Component {
-
+  
   makeEventsElements = () => {
     const dataRoom = this.props.dataRoom;
     const dataEvents = this.props.dataEvents;
     let eventsElements = [];
-    let emptyElement;
+    let isFullBusy = true;
     if(!dataEvents.length) {
       eventsElements.push (
-        <EmptyTime widthPercents={100}  />
+        <EmptyTime  key={"full_empty_time"} widthPercents={100}  />
       )
+      isFullBusy = false;
     }
     //we assume that events of room are sorted by date
     for (let i = 0; i < dataEvents.length; i++) {
@@ -27,21 +29,24 @@ export default class Room extends Component {
       } = this.calculateEmptyTime(event, i);
       if(leftInsert) {
         eventsElements.push(
-          <EmptyTime widthPercents={leftInsert}  />
+          <EmptyTime key={"left_empty_time_" + i + "_" + event.title} widthPercents={leftInsert}  />
         )
+        isFullBusy=false;
       }
       eventsElements.push(
         <Event
+          key={"event" + i +  "_" + event.title}
           dataEvent={event}
         />
       )
       if(rightInsert) {
         eventsElements.push(
-          <EmptyTime widthPercents={rightInsert}  />
+          <EmptyTime key={"right_empty_time_" + i + "_" + event.title} widthPercents={rightInsert}  />
         )
+        isFullBusy = false;
       }
     }
-    return eventsElements
+    return { eventsElements, isFullBusy }
   }
 
   calculateEmptyTime = (event, index) => {
@@ -87,9 +92,13 @@ export default class Room extends Component {
 
   render() {
     const { title, capacity } = this.props.dataRoom;
-    const eventsElements = this.makeEventsElements();
+    const { eventsElements, isFullBusy } = this.makeEventsElements();
+    let roomClasses = classNames({
+      'room': true,
+      'fullBusyRoom': isFullBusy
+    });
     return (
-      <div className="room">
+      <div className={roomClasses}>
         <div className="roomInfo">
           <div className="roomInfoName">{title}</div>
           <div className="roomInfoCapacity">{capacity}</div>

@@ -12,7 +12,7 @@ class GridTimeColumn extends Component {
     let hoursColumns = [];
     for (let i = START_HOUR; i <= END_HOUR + 1; i++) {
       hoursColumns.push(
-        <HourColumn />
+        <HourColumn key={"hour_" +i} />
       )
     }
     return hoursColumns;

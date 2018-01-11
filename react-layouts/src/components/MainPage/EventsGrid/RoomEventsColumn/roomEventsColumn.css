@@ -34,6 +34,8 @@
   display: flex;
   margin-top: 8px;
   height: 44px;
+  color: #000000;
+  font-family: HelveticaNeue, Open Sans, sans-serif;
 }
 
 .roomInfo {
@@ -41,18 +43,17 @@
 }
 
 .roomInfoName {
-  font-family: HelveticaNeue, Open Sans, sans-serif;
   font-weight: 600;
   font-size: 15px;
-  color: #000000;
   line-height: 17px
 }
 .roomInfoCapacity {
   margin-top: 2px;
-  font-family: HelveticaNeue, Open Sans, sans-serif;
   font-size: 13px;
-  color: #000000;
   line-height: 17px
+}
+.fullBusyRoom {
+  color: #858E98;
 }
 
 .roomSceduleWrapper {
@@ -97,9 +98,9 @@
   font-size: 24px;
 }
 
-
 .eventToolTipParent {
   position: relative;
+  z-index: 999;
 }
 .eventTooltip {
   position: absolute;

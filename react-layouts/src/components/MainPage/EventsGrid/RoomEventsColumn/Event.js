@@ -90,7 +90,8 @@ export default class Event extends Component {
                 </div>
               </div>
             </div>
-            : null
+            :
+            null 
         }
       </div>
     )
