@@ -1,0 +1,22 @@
+
+.gridTimeColumn {
+  grid-area: gridTimeColumn;
+  display: flex;
+  margin-left: calc(-100% + 244px);
+  width: calc(100% - 245px);
+  background-color:  rgb(246,246,249);
+  border-left: 1px solid rgb(240,240,240);
+  z-index: 1;
+}
+
+.hourColumn {
+  flex-grow: 1;
+  height: 100%;
+  border-right: 1px solid rgba(19,100,205,0.10)
+}
+.hourColumn:first-child {
+  flex-grow: 0.5;
+}
+.hourColumn:last-child {
+  flex-grow: 0.4;
+}

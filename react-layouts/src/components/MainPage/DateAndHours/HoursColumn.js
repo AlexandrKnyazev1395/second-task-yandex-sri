@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 
-class HoursCell extends Component {
+const START_HOUR = 8;
+const END_HOUR = 23;
+
+class HoursColumn extends Component {
 
   makeHours = () => {
-    const { startHour, endHour } = this.props;
     let hours = [];
-    for (let i = startHour; i <= endHour; i++) {
+    for (let i = START_HOUR; i <= END_HOUR; i++) {
       let hour = i;
-      if (i === startHour) {
+      if (i === START_HOUR) {
         hour = `${i}.00`
       }
       hours.push(
-        <div key={`${i} hour`} className="hour">
+        <div key={{i} +"_hour"} className="hour">
           {hour}
         </div>
       )
@@ -22,9 +24,9 @@ class HoursCell extends Component {
   render() {
     const hours = this.makeHours();
     return (
-      <div className="hoursCell">
+      <div className="hoursColumn">
         {hours}
-        <CurrentTime startHour={this.props.startHour} endHour={this.props.endHour} />
+        <CurrentTime />
       </div>
     )
   }
@@ -52,10 +54,9 @@ class CurrentTime extends Component {
   }
 
   getTimeCircleMargin = (hour, minutes) => {
-    let startHour = this.props.startHour;
-    let oneHourWidth = 68;
-    let hourMargin = (hour - startHour) * oneHourWidth;
-    let minutesMargin = oneHourWidth * (minutes / 100);
+    let oneHourWidthPercent = 100/(END_HOUR-START_HOUR + 1);
+    let hourMargin = (hour - START_HOUR) * oneHourWidthPercent;
+    let minutesMargin = (oneHourWidthPercent * (minutes/60));
     return hourMargin + minutesMargin;
   }
 
@@ -76,14 +77,14 @@ class CurrentTime extends Component {
     let date = new Date();
     let hour = date.getHours();
     let minutes = date.getMinutes();
-    if (hour < this.props.startHour - 1 || hour >= this.props.endHour) {
+    if (hour < START_HOUR - 1 || hour >= END_HOUR) {
       return null;
     }
     let currentTime = this.getCurrentTime(hour, minutes);
-    let timeCircleMargin = this.getTimeCircleMargin(hour, minutes);
+    let timeCircleMarginPercent = this.getTimeCircleMargin(hour, minutes);
     return (
       <div className="currentTime" style={{
-        marginLeft: timeCircleMargin
+        marginLeft: timeCircleMarginPercent + "%"
       }}>
         <div className="time">
           {currentTime}
@@ -94,4 +95,4 @@ class CurrentTime extends Component {
   }
 }
 
-export default HoursCell;
+export default HoursColumn;

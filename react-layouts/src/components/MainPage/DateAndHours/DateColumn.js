@@ -57,7 +57,7 @@ const FIRST_DAY_OF_WEEK = {
 };
 
 
-class DateCell extends Component {
+class DateColumn extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -139,7 +139,7 @@ class DateCell extends Component {
       showNext: showNextDateButton
     } = showNagivageButtons;
     return (
-      <div className="dateCell">
+      <div className="dateColumn">
         {showPreviousDateButton
           ?
           <div className="buttonPreviousDate" onClick={this.handlePreviousDayClick}>
@@ -188,4 +188,4 @@ class DateCell extends Component {
   }
 }
 
-export default DateCell;
+export default DateColumn;

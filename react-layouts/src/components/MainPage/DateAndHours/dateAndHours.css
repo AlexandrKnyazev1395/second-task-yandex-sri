@@ -1,0 +1,124 @@
+
+
+.dateColumn {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonNextDate, .buttonPreviousDate {
+  width: 24px;
+  height: 24px;
+  background: rgb(233, 236, 239);
+  border-radius: 100px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+.buttonNextDate:hover, .buttonPreviousDate:hover {
+  background-color: rgb(190, 192, 194);
+}
+
+.buttonNextDate img, .buttonPreviousDate img {
+  margin-top: 7px;
+  width: 10px;
+  height: 10px;
+  transform: scale(1.2)
+}
+
+.choosedDate {
+  box-sizing: border-box;
+  width: 146px;
+  padding: 5px 13.5px;
+  font-family: HelveticaNeue, Open Sans, sans-serif;
+  font-size: 15px;
+  color: #000000;
+  letter-spacing: 0;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+}
+.choosedDate:hover {
+  border-radius: 100px;
+  background-color: rgba(190, 192, 194, 0.2);
+}
+
+.threeMonthsCalendar {
+  position: absolute;
+  margin-top: 12px;
+  box-shadow: 0 1px 16px rgba(0,0,0,0.2);
+  background-color: white;
+  width: 735px;
+  height: 260px;
+  z-index: 999;
+  border-radius: 6px;
+}
+.DayPicker-wrapper {
+  outline: none;
+}
+.DayPicker-Months {
+  margin: 15px 20px;
+  flex-wrap: nowrap;
+  font-size: 0.8em;
+}
+.DayPicker-Month {
+  margin: 0 0.7rem;
+}
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  background-color: #007DFF;
+  border-radius: 100%;
+}
+
+/*hoursCell*/
+
+.hoursColumn {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 45px;
+}
+
+.hour {
+  flex-grow: 1;
+  margin-left: 17px;
+  height: 13px;
+  font-family: HelveticaNeue, Open Sans, sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #858E98;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+.hour:first-child {
+  margin-left: 4px;
+}
+
+
+.currentTime {
+  position: absolute;
+  left: 8px;
+}
+
+.time {
+  width: 49px;
+  padding-top: 3px;
+  padding-bottom: 4px;
+  background: #007DFF;
+  border-radius: 100px;
+  font-family:  HelveticaNeue, Open Sans, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+.timeLine {
+  position: absolute;
+  left: 26px;
+  border-top: 1px solid #007DFF;
+  border-right: 1px solid #007DFF;
+  height: calc(100vh - 120px);
+  z-index: 10;
+}
