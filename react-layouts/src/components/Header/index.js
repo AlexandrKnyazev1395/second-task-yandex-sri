@@ -1,22 +1,48 @@
 import React, { Component } from 'react';
 
+import { withRouter } from 'react-router-dom';
+
 import logo from '../../assets/logo.svg';
 
 import './header.css'
 
-export default class Header extends Component {
+class Header extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isShowCreateButton: true
+    }
+  }
+
+  componentWillMount() {
+    const pathname = this.props.location.pathname;
+    if (pathname === "/editEvent") {
+      this.setState({
+        isShowCreateButton: false
+      })
+    }
+  }
+
   render() {
     return (
       <div id="header">
         <img alt="logo of application" src={logo} height={24.6} />
-        <button className="button_create-event">
-          <span>
-            Создать встречу
-          </span>
-        </button>
+        {this.state.isShowCreateButton
+          ?
+          <button className="button_create-event">
+            <span>
+              Создать встречу
+            </span>
+          </button>
+          : 
+          null
+        }
+
       </div>
     )
   }
 }
 
+export default withRouter(Header)
 
