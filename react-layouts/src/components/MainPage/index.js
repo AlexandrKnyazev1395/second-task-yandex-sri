@@ -17,21 +17,18 @@ export default class MainPage extends Component {
   render() {
     return (
       <div>
-        <Schedule data={this.state.data} />
+        <Schedule />
       </div>
     )
   }
 }
 
 class Schedule extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return (
       <div className="schedule">
-        <DateAndHours/>
-        <EventsGrid/>
+        <DateAndHours />
+        <EventsGrid />
       </div>
     )
   }

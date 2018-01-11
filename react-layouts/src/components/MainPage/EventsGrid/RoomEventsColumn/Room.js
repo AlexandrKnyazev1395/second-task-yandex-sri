@@ -16,7 +16,10 @@ export default class Room extends Component {
     let isFullBusy = true;
     if(!dataEvents.length) {
       eventsElements.push (
-        <EmptyTime  key={"full_empty_time"} widthPercents={100}  />
+        <EmptyTime  
+          key={"full_empty_time"} 
+          widthPercents={100} 
+        />
       )
       isFullBusy = false;
     }
@@ -25,11 +28,18 @@ export default class Room extends Component {
       const event = dataEvents[i];
       let { 
         leftInsert, 
-        rightInsert
+        rightInsert,
+        emptyTimeStart,
+        emptyTimeEnd
       } = this.calculateEmptyTime(event, i);
       if(leftInsert) {
         eventsElements.push(
-          <EmptyTime key={"left_empty_time_" + i + "_" + event.title} widthPercents={leftInsert}  />
+          <EmptyTime 
+            key={"left_empty_time_" + i + "_" + event.title} 
+            widthPercents={leftInsert}  
+            emptyTimeStart={emptyTimeStart}
+            emptyTimeEnd={emptyTimeEnd}
+          />
         )
         isFullBusy=false;
       }
@@ -37,11 +47,18 @@ export default class Room extends Component {
         <Event
           key={"event" + i +  "_" + event.title}
           dataEvent={event}
+          emptyTimeStart={emptyTimeStart}
+          emptyTimeEnd={emptyTimeEnd}
         />
       )
       if(rightInsert) {
         eventsElements.push(
-          <EmptyTime key={"right_empty_time_" + i + "_" + event.title} widthPercents={rightInsert}  />
+          <EmptyTime 
+            key={"right_empty_time_" + i + "_" + event.title} 
+            widthPercents={rightInsert}  
+            emptyTimeStart={emptyTimeStart}
+            emptyTimeEnd={emptyTimeEnd}
+          />
         )
         isFullBusy = false;
       }
@@ -51,9 +68,11 @@ export default class Room extends Component {
 
   calculateEmptyTime = (event, index) => {
     const dataEvents = this.props.dataEvents;
-    const EmptyTime = {
+    const emptyTime = {
       leftInsert: null, 
-      rightInsert: null
+      rightInsert: null,
+      emptyTimeStart: null,
+      emptyTimeEnd: null
     }
     let widthPercents;
     let insertDirection = "left";
@@ -63,7 +82,9 @@ export default class Room extends Component {
       const dayDateStart = new Date(new Date(event.dateStart).setHours(START_HOUR, 0, 0))
       if(eventDateStart > dayDateStart) {
         let durationInHours = (eventDateStart - dayDateStart)/1000 /60 /60;
-        EmptyTime.leftInsert = durationInHours/(END_HOUR - START_HOUR) * 100;
+        emptyTime.leftInsert = durationInHours/(END_HOUR - START_HOUR) * 100;
+        emptyTime.emptyTimeStart = dayDateStart;
+        emptyTime.emptyTimeEnd = eventDateStart;
       }
     }
     else {
@@ -75,7 +96,9 @@ export default class Room extends Component {
       const previousEventDateEnd = new Date(dateEndPr);
       if(dateEndPr !== eventDateStart) {
         let durationInHours = ( eventDateStart - previousEventDateEnd)/1000 /60 /60;
-        EmptyTime.leftInsert = durationInHours/(END_HOUR - START_HOUR) * 100;
+        emptyTime.leftInsert = durationInHours/(END_HOUR - START_HOUR) * 100;
+        emptyTime.emptyTimeStart = previousEventDateEnd;
+        emptyTime.emptyTimeEnd = eventDateStart;
       }
     }
     
@@ -83,11 +106,13 @@ export default class Room extends Component {
       const dayDateEnd = new Date(new Date(event.dateEnd).setHours(END_HOUR, 0, 0))
       if(eventDateEnd < dayDateEnd) {
         let durationInHours = ( dayDateEnd - eventDateEnd)/1000 /60 /60;
-        EmptyTime.rightInsert = durationInHours/(END_HOUR - START_HOUR) * 100;
+        emptyTime.rightInsert = durationInHours/(END_HOUR - START_HOUR) * 100;
+        emptyTime.emptyTimeStart = eventDateEnd;
+        emptyTime.emptyTimeEnd = dayDateEnd;
       }
     }
     
-    return EmptyTime;
+    return emptyTime;
   }
 
   render() {
