@@ -76,7 +76,7 @@ export default class Event extends Component {
             <div className="eventToolTipParent">
               <div className="eventTooltip">
                 <div className="triangleBorder"></div>
-                <div className="editEvent">
+                <div className="editEventButton">
                   <img alt="edit event" src={edit} />
                 </div>
                 <div className="eventInfo">

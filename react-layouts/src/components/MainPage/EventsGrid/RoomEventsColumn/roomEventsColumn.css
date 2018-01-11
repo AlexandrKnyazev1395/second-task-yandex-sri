@@ -127,7 +127,7 @@
   border: 9px solid transparent;	border-bottom: 9px solid white;
 }
 
-.editEvent {
+.editEventButton {
   float: right;
   margin-right: 5px;
   margin-top: 5px;
@@ -137,10 +137,10 @@
   border-radius: 100px;
   text-align: center;
 }
-.editEvent:hover {
+.editEventButton:hover {
   background-color: rgb(204, 206, 207);
 }
-.editEvent img {
+.editEventButton img {
   margin-top: 6px;
   opacity: 0.43;
 }

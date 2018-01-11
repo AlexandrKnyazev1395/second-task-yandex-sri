@@ -5,57 +5,13 @@ import 'react-day-picker/lib/style.css';
 import arrowRight from '../../../assets/arrow.svg';
 import arrowLeft from '../../../assets/arrow2.svg';
 
-const MONTHS_SHORT = [
-  'янв',
-  'фев',
-  'мар',
-  'апр',
-  'мая',
-  'июн',
-  'июл',
-  'авг',
-  'сен',
-  'окт',
-  'ноя',
-  'дек',
-];
-
-const MONTHS = {
-  ru: [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентябрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь',
-  ]
-};
-
-const WEEKDAYS_SHORT = {
-  ru: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
-};
-const WEEKDAYS_LONG = {
-  ru: [
-    'Воскресенье',
-    'Понедельник',
-    'Вторник',
-    'Среда',
-    'Четверг',
-    'Пятница',
-    'Суббота',
-  ]
-};
-
-const FIRST_DAY_OF_WEEK = {
-  ru: 1,
-};
-
+import {
+  MONTHS_SHORT,
+  MONTHS,
+  WEEKDAYS_SHORT,
+  WEEKDAYS_LONG,
+  FIRST_DAY_OF_WEEK
+} from '../../../localizations/calendarLocalizatons'
 
 class DateColumn extends Component {
   constructor(props) {
