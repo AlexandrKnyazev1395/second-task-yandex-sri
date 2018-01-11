@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Header from './Header'
 import EventsGrid from './EventsGrid';
 import DateAndHours from './DateAndHours'
 
@@ -28,7 +27,6 @@ class Schedule extends Component {
   render() {
     return (
       <div className="schedule">
-        <Header />
         <DateAndHours />
         <EventsGrid />
       </div>

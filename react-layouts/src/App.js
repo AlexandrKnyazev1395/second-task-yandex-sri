@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom'
 
-import MainPage from './components/MainPage';
+import Header from './components/Header'
+import MainPage from './components/MainPage'
 import EditEvent from './components/EditEvent'
 
 import './App.css';
@@ -14,6 +15,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <Header />
           <Route exact path="/" component={MainPage} />
           <Route exact path="/editEvent" component={EditEvent} />
         </div>
