@@ -27,7 +27,7 @@ class Header extends Component {
   render() {
     return (
       <div id="header">
-        <img alt="logo of application" src={logo} height={24.6} />
+        <img alt="logo of application" src={logo}  />
         {this.state.isShowCreateButton
           ?
           <button className="button_create-event">

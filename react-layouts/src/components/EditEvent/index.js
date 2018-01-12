@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import InputTheme from './InputTheme';
 import SelectMembers from './SelectMembers';
 import ChooseDateAndTime from './ChooseDateAndTime';
+import ChoosedRoom from './ChoosedRoom';
+import Footer from './Footer'
 
 import './editEvent.css'
 
@@ -28,14 +30,11 @@ export default class EditEvent extends Component {
           </div>
 
           <div className="choosedRoomBlock">
-          
+            <ChoosedRoom />
           </div>
-
-
-          
-          <div>
-          </div>
-
+        </div>
+        <div className="footer">
+          <Footer />
         </div>
       </div>
     )

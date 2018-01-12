@@ -69,6 +69,22 @@
   border-radius: 100%;
 }
 
+@media screen and (min-width: 765px) and (max-width: 1024px)  {
+  .threeMonthsCalendar {
+    margin-left: -20px;
+    width: 700px;
+    height: 240px;
+  }
+  .dateColumn .DayPicker-Months {
+    margin: 10px 10px;
+    flex-wrap: nowrap;
+    font-size: 0.7em;
+  }
+  .dateColumn .DayPicker-Month {
+    margin: 0 0.3rem;
+  }
+}
+
 
 .hoursColumn {
   grid-area: hoursColumn;
@@ -89,7 +105,6 @@
 */
 .hour {
   flex-grow: 1;
-  margin-left: 17px;
   height: 13px;
   font-family: HelveticaNeue, Open Sans, sans-serif;
   font-weight: 700;
@@ -99,17 +114,17 @@
   text-align: center;
 }
 .hour:first-child {
-  margin-left: 4px;
+  margin-left: -3px;
 }
 
 
 .currentTime {
+  width: 6.29%;
   position: absolute;
-  left: 8px;
 }
 
 .time {
-  width: 49px;
+  width: 100%;
   padding-top: 3px;
   padding-bottom: 4px;
   background: #007DFF;
@@ -124,7 +139,7 @@
 
 .timeLine {
   position: absolute;
-  left: 26px;
+  left: 50%;
   border-top: 1px solid #007DFF;
   border-right: 1px solid #007DFF;
   height: calc(100vh - 120px);

@@ -3,9 +3,7 @@ import SearchInput, { createFilter } from 'react-search-input'
 
 import testUsersData from './testUsersData'
 
-import deleteMember from './../../assets/close.svg';
-
-
+import deleteButtonImg from './../../assets/close.svg';
 
 export default class SelectMembers extends Component {
   constructor(props) {
@@ -90,7 +88,7 @@ class Suggestion extends Component {
   render() {
     const { user } = this.props;
     return (
-      <div key={user.id} onClick={this.handlerUserClick}>
+      <div key={user.id} onClick={this.handleUserClick}>
         <img alt="av" src={"https://api.adorable.io/avatars/25/"+ user.id +"abott@adorable.png"} />
         <span>{user.name}</span>
         <span className="homeFloor">{user.homeFloor} этаж</span>
@@ -114,17 +112,17 @@ class ChoosedMembers extends Component {
 
 class ChoosedMember extends Component {
 
-  handleUserClick = () => {
+  handleDeleteUserClick = () => {
     //add user to event function
   }
 
   render() {
     const { user } = this.props;
     return (
-      <div key={user.id} onClick={this.handlerUserClick}>
+      <div key={user.id} >
         <img className="userAvatar" alt="av" src={"https://api.adorable.io/avatars/25/"+ user.id +"abott@adorable.png"} />
         <span>{user.name}</span>
-        <span className="deleteAvatarButton"><img src={deleteMember} /></span>
+        <span className="deleteAvatarButton" onClick={this.handleDeleteUserClick}><img src={deleteButtonImg} /></span>
       </div>
     )
   }

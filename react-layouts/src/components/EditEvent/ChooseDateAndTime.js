@@ -47,7 +47,7 @@ export default class ChooseDateAndTime extends Component {
             <input type="text" value="08:01" />
           </div>
           <div className="separator">
-            &mdash;
+            <span> &ndash; </span>
           </div>
           <div className="endTime">
             <span className="inputName">Конец</span>
