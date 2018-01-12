@@ -19,7 +19,14 @@
   width: 245px;
   padding-left: 22px;
 }
-
+/*
+@media screen and (max-width: 700px) {
+  .floorInfo, .roomInfo {
+    flex-basis: 181px;
+    width: 181px;
+  }
+}
+*/
 .floorName {
   font-size: 11px;
   text-transform: uppercase;
@@ -60,6 +67,13 @@
   width: calc(100% - 245px);
   background-color: transparent;
 }
+/*
+@media screen and (max-width: 700px) {
+  .roomSceduleWrapper {
+    width: calc(100% - 181px);
+  }
+}*/
+
 .roomSchedule {
   display: flex;
   background-color: rgba(206, 217, 228, 0.5);
@@ -96,6 +110,7 @@
   font-weight: 600;
   text-align: center;
   font-size: 24px;
+  margin-top: -3px;
 }
 
 .eventToolTipParent {

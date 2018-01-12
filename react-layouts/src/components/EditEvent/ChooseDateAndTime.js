@@ -28,7 +28,7 @@ export default class ChooseDateAndTime extends Component {
     return (
       <div>
         <div className="chooseDate">
-          <span>Дата</span>
+          <span className="inputName">Дата</span>
           <input type="text" value="21-01-2015" />
           {/*<DayPicker
             className="dayPicker"
@@ -43,14 +43,14 @@ export default class ChooseDateAndTime extends Component {
         </div>
         <div className="chooseTime">
           <div className="startTime">
-            <span>Начало</span>
+            <span className="inputName">Начало</span>
             <input type="text" value="08:01" />
           </div>
           <div className="separator">
             &mdash;
           </div>
           <div className="endTime">
-            <span>Конец</span>
+            <span className="inputName">Конец</span>
             <input type="text" value="21:01" />
           </div>
         </div>

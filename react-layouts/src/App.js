@@ -9,8 +9,6 @@ import Header from './components/Header'
 import MainPage from './components/MainPage'
 import EditEvent from './components/EditEvent'
 
-import './App.css';
-
 class App extends Component {
   render() {
     return (
@@ -21,7 +19,6 @@ class App extends Component {
           <Route exact path="/editEvent" component={EditEvent} />
         </div>
       </Router>
-
     );
   }
 }

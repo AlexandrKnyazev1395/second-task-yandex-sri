@@ -1,9 +1,11 @@
 
 .dateAndHours {
   display: grid;
-  height: 46px;
+  grid-template-rows: 46px;
   grid-template-columns: 245px auto;
   border-bottom: 1px solid rgb(240,240,240);
+  grid-template-areas: 
+    "dateColumn hoursColumn"
 }
 
 .eventsGrid {
@@ -12,3 +14,17 @@
   grid-template-areas: 
     "roomEventsColumn gridTimeColumn"
 }
+/*
+@media screen and (max-width: 700px) {
+  .dateAndHours {
+    grid-template-columns: 181px 1024px;
+    grid-template-rows: 46px 32px;
+    grid-template-areas: 
+      "dateColumn dateColumn"
+      ". hoursColumn"
+  }
+  .eventsGrid {
+    grid-template-columns: 1024px 1024px;
+  }
+}
+*/

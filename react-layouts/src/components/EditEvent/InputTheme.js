@@ -27,8 +27,14 @@ export default class InputTheme extends Component {
   render() {
     return (
       <div>
-        <span>Тема</span>
-        <input id="inputTheme" type="text" value={this.state.theme} onChange={this.onChangeInputHandler} />
+        <span className="inputName">Тема</span>
+        <input
+          id="inputTheme"
+          type="text"
+          value={this.state.theme}
+          onChange={this.onChangeInputHandler}
+          placeholder="О чем будете говорить?"
+        />
         <button
           className="clearInputButton"
           type="reset"

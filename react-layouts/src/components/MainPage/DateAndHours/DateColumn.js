@@ -109,8 +109,8 @@ class DateColumn extends Component {
           {dateText} {additionalPart ? <span>&#183; {additionalPart}</span> : <null />}
           {this.state.isShowCalendar
             ?
-            <div className="threeMonthsCalendar">
-              <DayPicker
+            /*<div className="threeMonthsCalendar">
+              {/*<DayPicker
                 className="dayPicker"
                 canChangeMonth={false}
                 month={new Date()}
@@ -124,7 +124,8 @@ class DateColumn extends Component {
                 weekdaysShort={WEEKDAYS_SHORT[locale]}
                 firstDayOfWeek={FIRST_DAY_OF_WEEK[locale]}
               />
-            </div>
+            </div>*/
+            null
             :
             null
           }

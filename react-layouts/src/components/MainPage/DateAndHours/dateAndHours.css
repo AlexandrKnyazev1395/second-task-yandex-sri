@@ -1,6 +1,5 @@
-
-
 .dateColumn {
+  grid-area: dateColumn;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -70,15 +69,24 @@
   border-radius: 100%;
 }
 
-/*hoursCell*/
 
 .hoursColumn {
+  grid-area: hoursColumn;
   display: flex;
   position: relative;
   align-items: center;
   height: 45px;
 }
-
+/*
+@media screen and (max-width: 700px) {
+  .dateColumn {
+    width: 100%
+  }
+  .hoursColumn {
+    width: 1024px;
+  }
+}
+*/
 .hour {
   flex-grow: 1;
   margin-left: 17px;

@@ -9,6 +9,12 @@
   padding-bottom: 21.6px;
   border-bottom: 1px solid rgb(240,240,240);
 }
+/*
+@media screen and (max-width: 700px) {
+  #header {
+    /*height: 48px;
+  }
+}*/
 
 .button_create-event{
   width: 140px;

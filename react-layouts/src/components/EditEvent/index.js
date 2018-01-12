@@ -28,7 +28,7 @@ export default class EditEvent extends Component {
           </div>
 
           <div className="choosedRoomBlock">
-
+          
           </div>
 
 

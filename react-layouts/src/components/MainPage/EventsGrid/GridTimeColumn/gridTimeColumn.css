@@ -8,12 +8,21 @@
   border-left: 1px solid rgb(240,240,240);
   z-index: 1;
 }
-
+/*
+@media screen and (max-width: 700px) {
+  .gridTimeColumn {
+    margin-left: calc(-100% + 180px);
+    width: calc(100% - 181px);
+    min-width: 1024px;
+  }
+}
+*/
 .hourColumn {
   flex-grow: 1;
   height: 100%;
   border-right: 1px solid rgba(19,100,205,0.10)
 }
+
 .hourColumn:first-child {
   flex-grow: 0.5;
 }
