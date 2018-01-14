@@ -7,7 +7,7 @@ import {
 
 import Header from './components/Header'
 import MainPage from './components/MainPage'
-import EditEvent from './components/EditEvent'
+import { CreateEvent, EditEvent } from './components/Event'
 
 class App extends Component {
   render() {
@@ -17,6 +17,7 @@ class App extends Component {
           <Header />
           <Route exact path="/" component={MainPage} />
           <Route exact path="/editEvent" component={EditEvent} />
+          <Route exact path="/createEvent" component={CreateEvent} />
         </div>
       </Router>
     );

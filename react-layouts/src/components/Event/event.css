@@ -349,7 +349,7 @@
 
 /*footer*/
 
-.footer button {
+.footer button, .eventModal button {
   height: 36px;
   padding: 10px 16px;
   border: none;
@@ -384,4 +384,76 @@
 }
 .footer .saveButton:active {
   background-color: rgb(0, 62, 179);;
+}
+
+.eventModalOverlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0,16,33,0.40);
+}
+
+.eventModal {
+  position: absolute;
+  box-sizing: border-box;
+  height: 37%;
+  width: 34%;
+  min-width: 444px;
+  min-height: 252px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 16px 0 rgba(0,44,92,0.28);
+  outline: none;
+  text-align: center;
+  font-family: HelveticaNeue, Open-sans, sans-serif;
+}
+
+.eventModal img{
+  width: 10%;
+  height: auto;
+}
+
+.eventModal h1{
+  margin: 8px;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.eventModal p{
+  margin: 6px;
+  font-size: 15px;
+  letter-spacing: 0;
+}
+
+.eventModal .okButton {
+  margin-top: 34px;
+  color: white;
+  background-color: rgb(0, 125, 255);
+}
+
+.eventModal .okButton:hover {
+  background-color: rgb(0, 89, 255);
+}
+.eventModal .okButton:active {
+  background-color: rgb(0, 62, 179);;
+}
+
+.eventModal .cancelButton, .eventModal .deleteButton {
+  margin-top: 34px;
+  margin-left: 8px;
+  margin-right: 8px;
+  background-color: rgb(233, 236, 239);
+}
+
+.eventModal .cancelButton:hover, .eventModal .deleteButton:hover {
+  background-color: rgba(0,16,33,0.1);
+}
+.eventModal .cancelButton:active, .eventModal .deleteButton:active {
+  background-color: rgba(0,16,33,0.2);
 }

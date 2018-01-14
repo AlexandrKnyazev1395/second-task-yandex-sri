@@ -9,7 +9,7 @@ import {
   WEEKDAYS_SHORT,
   WEEKDAYS_LONG,
   FIRST_DAY_OF_WEEK
-} from '../../localizations/calendarLocalizatons'
+} from './../../localizations/calendarLocalizatons'
 
 export default class ChooseDateAndTime extends Component {
 

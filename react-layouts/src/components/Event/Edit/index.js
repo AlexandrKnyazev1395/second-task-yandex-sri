@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 
-import InputTheme from './InputTheme';
-import SelectMembers from './SelectMembers';
-import ChooseDateAndTime from './ChooseDateAndTime';
-import ChoosedRoom from './ChoosedRoom';
+import InputTheme from '../InputTheme';
+import SelectMembers from '../SelectMembers';
+import ChooseDateAndTime from '../ChooseDateAndTime';
+import ChoosedRoom from '../ChoosedRoom';
 import Footer from './Footer'
-
-import './editEvent.css'
 
 export default class EditEvent extends Component {
   render() {
