@@ -21,6 +21,27 @@ export default [
     ]
   },
   {
+    title: "7 этаж",
+    rooms: [
+      {
+        title: "Ржавый Фред",
+        capacity: "3-6человек"
+      },
+      {
+        title: "Прачечная",
+        capacity: "до 10 человек"
+      },
+      {
+        title: "Желтый дом",
+        capacity: "до 10 человек"
+      },
+      {
+        title: "Оранжевый тюльпан",
+        capacity: "до 10 человек"
+      }
+    ]
+  },
+  {
     title: "6 этаж",
     rooms: [
       {

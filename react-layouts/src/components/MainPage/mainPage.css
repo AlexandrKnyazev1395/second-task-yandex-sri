@@ -1,5 +1,6 @@
 :root {
   --left-column-width: 245px;
+  --mobile-right-column-width: 1200px;
 }
 
 
@@ -20,10 +21,21 @@
   display: grid;
   grid-template-rows: 46px;
   grid-template-columns: var(--left-column-width) auto;
-  border-bottom: 1px solid rgb(240,240,240);
   grid-template-areas: 
-    "dateColumn hoursColumn"
+    "dateColumn hoursColumn";
+  border-bottom: 1px solid rgb(240,240,240);
 }
+
+@media screen and (max-width: 764px) {
+  .dateAndHours {
+    grid-template-columns: var(--left-column-width) calc(100% - var(--left-column-width));
+    grid-template-rows: 56px 32px;
+    grid-template-areas: 
+      "dateColumn dateColumn"
+      ". hoursColumn";
+  }
+}
+
 
 .eventsGrid {
   display: grid;
@@ -31,17 +43,13 @@
   grid-template-areas: 
     "roomEventsColumn gridTimeColumn"
 }
-/*
-@media screen and (max-width: 700px) {
-  .dateAndHours {
-    grid-template-columns: 181px 1024px;
-    grid-template-rows: 46px 32px;
-    grid-template-areas: 
-      "dateColumn dateColumn"
-      ". hoursColumn"
-  }
+
+@media screen and (max-width: 764px) {
   .eventsGrid {
-    grid-template-columns: 1024px 1024px;
+    display: grid;
+    grid-template-columns: calc(var(--mobile-right-column-width) + var(--left-column-width)) calc(var(--mobile-right-column-width) + var(--left-column-width));
+    grid-template-areas: 
+      "roomEventsColumn gridTimeColumn"
   }
 }
-*/
+

@@ -5,13 +5,12 @@
   z-index: 2;
 }
 
-.floor {
-  margin-top: 23px;
-  margin-bottom: 5px;
-}
 .floorInfo {
+  padding-top: 23px;
+  padding-bottom: 2px;
   margin-bottom: -8px;
 }
+
 
 .floorInfo, .roomInfo {
   box-sizing: border-box;
@@ -20,14 +19,16 @@
   width: var(--left-column-width);
   padding-left: 22px;
 }
-/*
-@media screen and (max-width: 700px) {
-  .floorInfo, .roomInfo {
-    flex-basis: 181px;
-    width: 181px;
+
+@media screen and (max-width: 764px) {
+  .floorInfo {
+    padding-bottom: 10px;
+    background-color:  rgb(246,246,249);
+  }
+  .roomInfo {
+    background-color:  white;
   }
 }
-*/
 .floorName {
   font-size: 11px;
   text-transform: uppercase;
@@ -40,10 +41,18 @@
 
 .room {
   display: flex;
-  margin-top: 8px;
+  padding-top: 8px;
   height: 44px;
-  color: #000000;
   font-family: HelveticaNeue, Open Sans, sans-serif;
+}
+
+@media screen and (max-width: 764px) {
+  .room {
+    padding-top: 0px;
+    border-bottom: 2px solid rgb(246,246,249);
+    height:  50px;
+    /*background-color:  rgb(246,246,249);*/
+  }
 }
 
 .roomInfo {
@@ -69,27 +78,42 @@
   width: calc(100% - var(--left-column-width));
   background-color: transparent;
 }
-/*
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 764px) {
   .roomSceduleWrapper {
-    width: calc(100% - 181px);
+    
   }
-}*/
+}
 
 .roomSchedule {
   display: flex;
-  background-color: rgba(206, 217, 228, 0.5);
   margin-top: 8px;
   margin-bottom: 8px;
+  background-color: rgba(206, 217, 228, 0.5);
   height: 28px;
   padding-left: 3.2%;
   padding-right: 3.2%;
+}
+
+@media screen and (max-width: 764px) {
+  .roomSchedule {
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 .event {
   height: 28px;
   cursor: pointer;
 }
+@media screen and (max-width: 764px) {
+  .event {
+    height: 100%;
+  }
+}
+
+
 .event:hover {
   background-color: #99A9B9;
 }
@@ -98,6 +122,12 @@
   background-color: white;
   height: 28px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 764px) {
+  .emptyTime {
+    height: 100%;
+  }
 }
 
 .emptyTime:hover {
@@ -113,6 +143,12 @@
   text-align: center;
   font-size: 24px;
   margin-top: -3px;
+}
+
+@media screen and (max-width: 764px) {
+  .pluseSign {
+    margin-top: 5px;
+  }
 }
 
 .eventToolTipParent {

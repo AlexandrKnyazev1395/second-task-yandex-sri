@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TextTruncate from 'react-text-truncate';
 import classNames from 'classnames';
 
 import Event from './Event';
@@ -125,7 +126,14 @@ export default class Room extends Component {
     return (
       <div className={roomClasses}>
         <div className="roomInfo">
-          <div className="roomInfoName">{title}</div>
+          <div className="roomInfoName">
+            <TextTruncate
+                line={1}
+                truncateText="…"
+                text={title}
+            />
+            
+          </div>
           <div className="roomInfoCapacity">{capacity}</div>
         </div>
         <div className="roomSceduleWrapper">

@@ -1,9 +1,21 @@
 .dateColumn {
+  box-sizing: border-box;
   grid-area: dateColumn;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
+  background-color: white;
+}
+
+@media screen and (max-width: 764px) {
+  .dateColumn {
+    width: 100%;
+    position: fixed;
+    height: 56px;
+    border-bottom: 1px solid rgb(240,240,240);
+  }
 }
 
 .buttonNextDate, .buttonPreviousDate {
@@ -50,7 +62,7 @@
   background-color: white;
   width: 735px;
   height: 260px;
-  z-index: 999;
+  /*z-index: 999;*/
   border-radius: 6px;
 }
 .dateColumn .DayPicker-wrapper {
@@ -89,20 +101,20 @@
 .hoursColumn {
   grid-area: hoursColumn;
   display: flex;
+  box-sizing: border-box;
   position: relative;
   align-items: center;
   height: 45px;
 }
-/*
-@media screen and (max-width: 700px) {
-  .dateColumn {
-    width: 100%
-  }
+
+
+@media screen and (max-width: 764px) {
   .hoursColumn {
-    width: 1024px;
+    width: var(--mobile-right-column-width);
+    height: 32px;
   }
 }
-*/
+
 .hour {
   flex-grow: 1;
   height: 13px;

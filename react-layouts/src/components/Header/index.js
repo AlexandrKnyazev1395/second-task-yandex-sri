@@ -27,18 +27,19 @@ class Header extends Component {
   render() {
     return (
       <div id="header">
-        <img alt="logo of application" src={logo}  />
-        {this.state.isShowCreateButton
-          ?
-          <button className="button_create-event">
-            <span>
-              Создать встречу
+        <div id="fixedHeader">
+          <img alt="logo of application" src={logo} />
+          {this.state.isShowCreateButton
+            ?
+            <button className="button_create-event">
+              <span>
+                Создать встречу
             </span>
-          </button>
-          : 
-          null
-        }
-
+            </button>
+            :
+            null
+          }
+        </div>
       </div>
     )
   }
