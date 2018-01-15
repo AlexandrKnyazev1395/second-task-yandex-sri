@@ -19,10 +19,21 @@ class DateColumn extends Component {
     this.state = {
       selectedDate: new Date(),
       initialDate: new Date(),
-      isShowCalendar: false
+      isShowCalendar: false,
+      sclollLeftPixels: 0
     }
   }
 
+  componentDidMount = () => {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = (e) => {
+    var scrollLeft = window.pageXOffset
+    this.setState({
+      sclollLeftPixels: scrollLeft
+    })
+  }
 
   getChoosedDateText = () => {
     const date = this.state.selectedDate;
@@ -95,7 +106,7 @@ class DateColumn extends Component {
       showNext: showNextDateButton
     } = showNagivageButtons;
     return (
-      <div className="dateColumn">
+      <div className="dateColumn" style={{left: this.state.sclollLeftPixels}}>
         {showPreviousDateButton
           ?
           <div className="buttonPreviousDate" onClick={this.handlePreviousDayClick}>

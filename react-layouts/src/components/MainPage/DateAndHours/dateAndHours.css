@@ -1,4 +1,5 @@
 .dateColumn {
+  position: relative;
   box-sizing: border-box;
   grid-area: dateColumn;
   height: 100%;
@@ -12,7 +13,7 @@
 @media screen and (max-width: 764px) {
   .dateColumn {
     width: 100%;
-    position: fixed;
+    
     height: 56px;
     border-bottom: 1px solid rgb(240,240,240);
   }
