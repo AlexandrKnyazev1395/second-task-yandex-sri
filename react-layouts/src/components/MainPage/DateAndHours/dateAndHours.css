@@ -121,10 +121,12 @@
 .currentTime {
   width: 6.29%;
   position: absolute;
+  display: flex;
+  justify-content: center;
 }
 
 .time {
-  width: 100%;
+  width: 49px;
   padding-top: 3px;
   padding-bottom: 4px;
   background: #007DFF;
@@ -142,6 +144,6 @@
   left: 50%;
   border-top: 1px solid #007DFF;
   border-right: 1px solid #007DFF;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 100px);
   z-index: 10;
 }

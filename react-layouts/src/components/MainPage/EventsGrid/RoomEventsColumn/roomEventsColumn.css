@@ -15,8 +15,9 @@
 
 .floorInfo, .roomInfo {
   box-sizing: border-box;
-  flex-basis: 245px;
-  width: 245px;
+  /*variable from mainPage.css*/
+  flex-basis: var(--left-column-width);
+  width: var(--left-column-width);
   padding-left: 22px;
 }
 /*
@@ -64,7 +65,8 @@
 }
 
 .roomSceduleWrapper {
-  width: calc(100% - 245px);
+  /*variable from mainPage.css*/
+  width: calc(100% - var(--left-column-width));
   background-color: transparent;
 }
 /*

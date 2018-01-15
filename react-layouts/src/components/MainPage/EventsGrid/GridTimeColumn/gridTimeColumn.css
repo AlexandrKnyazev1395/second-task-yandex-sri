@@ -2,8 +2,10 @@
 .gridTimeColumn {
   grid-area: gridTimeColumn;
   display: flex;
-  margin-left: calc(-100% + 244px);
-  width: calc(100% - 245px);
+  box-sizing: border-box;
+  /*variable from mainPage.css*/
+  margin-left: calc(-100% + var(--left-column-width));
+  width: calc(100% - var(--left-column-width));
   background-color:  rgb(246,246,249);
   border-left: 1px solid rgb(240,240,240);
   z-index: 1;

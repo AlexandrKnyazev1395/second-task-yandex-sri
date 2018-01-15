@@ -1,8 +1,25 @@
+:root {
+  --left-column-width: 245px;
+}
+
+
+@media screen and (min-width: 765px) and (max-width: 1024px) {
+  :root {
+    --left-column-width: 200px;
+  }
+}
+
+@media screen and (max-width: 764px) {
+  :root {
+    --left-column-width: 184px;
+  }
+}
+
 
 .dateAndHours {
   display: grid;
   grid-template-rows: 46px;
-  grid-template-columns: 245px auto;
+  grid-template-columns: var(--left-column-width) auto;
   border-bottom: 1px solid rgb(240,240,240);
   grid-template-areas: 
     "dateColumn hoursColumn"
