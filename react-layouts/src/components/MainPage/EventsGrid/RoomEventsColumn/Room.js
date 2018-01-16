@@ -9,17 +9,53 @@ const START_HOUR = 8;
 const END_HOUR = 23;
 
 export default class Room extends Component {
-  
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isRoomInfoHidden: false,
+      scrollLeft: 0
+    }
+  }
+
+  componentDidMount = () => {
+    window.addEventListener('scroll', this.handleScroll);
+    var scrollLeft = window.pageXOffset;
+    this.setState({
+      scrollLeftPixels: scrollLeft
+    })
+  }
+
+  handleScroll = (e) => {
+    var scrollLeft = window.pageXOffset;
+    if (scrollLeft > 184 && !this.state.isRoomInfoHidden) {
+      this.setState({
+        isRoomInfoHidden: true,
+        scrollLeftPixels: scrollLeft
+      })
+    }
+    else if (scrollLeft < 184 && this.state.isRoomInfoHidden) {
+      this.setState({
+        isRoomInfoHidden: false,
+        scrollLeftPixels: scrollLeft
+      })
+    }
+    else {
+      this.setState({
+        scrollLeftPixels: window.pageXOffset
+      })
+    }
+  }
+
   makeEventsElements = () => {
-    const dataRoom = this.props.dataRoom;
     const dataEvents = this.props.dataEvents;
     let eventsElements = [];
     let isFullBusy = true;
-    if(!dataEvents.length) {
-      eventsElements.push (
-        <EmptyTime  
-          key={"full_empty_time"} 
-          widthPercents={100} 
+    if (!dataEvents.length) {
+      eventsElements.push(
+        <EmptyTime
+          key={"full_empty_time"}
+          widthPercents={100}
         />
       )
       isFullBusy = false;
@@ -27,36 +63,36 @@ export default class Room extends Component {
     //we assume that events of room are sorted by date
     for (let i = 0; i < dataEvents.length; i++) {
       const event = dataEvents[i];
-      let { 
-        leftInsert, 
+      let {
+        leftInsert,
         rightInsert,
         emptyTimeStart,
         emptyTimeEnd
       } = this.calculateEmptyTime(event, i);
-      if(leftInsert) {
+      if (leftInsert) {
         eventsElements.push(
-          <EmptyTime 
-            key={"left_empty_time_" + i + "_" + event.title} 
-            widthPercents={leftInsert}  
+          <EmptyTime
+            key={"left_empty_time_" + i + "_" + event.title}
+            widthPercents={leftInsert}
             emptyTimeStart={emptyTimeStart}
             emptyTimeEnd={emptyTimeEnd}
           />
         )
-        isFullBusy=false;
+        isFullBusy = false;
       }
       eventsElements.push(
         <Event
-          key={"event" + i +  "_" + event.title}
+          key={"event" + i + "_" + event.title}
           dataEvent={event}
           emptyTimeStart={emptyTimeStart}
           emptyTimeEnd={emptyTimeEnd}
         />
       )
-      if(rightInsert) {
+      if (rightInsert) {
         eventsElements.push(
-          <EmptyTime 
-            key={"right_empty_time_" + i + "_" + event.title} 
-            widthPercents={rightInsert}  
+          <EmptyTime
+            key={"right_empty_time_" + i + "_" + event.title}
+            widthPercents={rightInsert}
             emptyTimeStart={emptyTimeStart}
             emptyTimeEnd={emptyTimeEnd}
           />
@@ -70,20 +106,18 @@ export default class Room extends Component {
   calculateEmptyTime = (event, index) => {
     const dataEvents = this.props.dataEvents;
     const emptyTime = {
-      leftInsert: null, 
+      leftInsert: null,
       rightInsert: null,
       emptyTimeStart: null,
       emptyTimeEnd: null
     }
-    let widthPercents;
-    let insertDirection = "left";
     const eventDateStart = new Date(event.dateStart);
     const eventDateEnd = new Date(event.dateEnd);
-    if(index === 0) {
+    if (index === 0) {
       const dayDateStart = new Date(new Date(event.dateStart).setHours(START_HOUR, 0, 0))
-      if(eventDateStart > dayDateStart) {
-        let durationInHours = (eventDateStart - dayDateStart)/1000 /60 /60;
-        emptyTime.leftInsert = durationInHours/(END_HOUR - START_HOUR) * 100;
+      if (eventDateStart > dayDateStart) {
+        let durationInHours = (eventDateStart - dayDateStart) / 1000 / 60 / 60;
+        emptyTime.leftInsert = durationInHours / (END_HOUR - START_HOUR) * 100;
         emptyTime.emptyTimeStart = dayDateStart;
         emptyTime.emptyTimeEnd = eventDateStart;
       }
@@ -91,52 +125,72 @@ export default class Room extends Component {
     else {
       const previousEvent = dataEvents[index - 1];
       const {
-        dateStart: dateStartPr,
         dateEnd: dateEndPr,
       } = previousEvent;
       const previousEventDateEnd = new Date(dateEndPr);
-      if(dateEndPr !== eventDateStart) {
-        let durationInHours = ( eventDateStart - previousEventDateEnd)/1000 /60 /60;
-        emptyTime.leftInsert = durationInHours/(END_HOUR - START_HOUR) * 100;
+      if (dateEndPr !== eventDateStart) {
+        let durationInHours = (eventDateStart - previousEventDateEnd) / 1000 / 60 / 60;
+        emptyTime.leftInsert = durationInHours / (END_HOUR - START_HOUR) * 100;
         emptyTime.emptyTimeStart = previousEventDateEnd;
         emptyTime.emptyTimeEnd = eventDateStart;
       }
     }
-    
-    if(index === dataEvents.length - 1) {
+
+    if (index === dataEvents.length - 1) {
       const dayDateEnd = new Date(new Date(event.dateEnd).setHours(END_HOUR, 0, 0))
-      if(eventDateEnd < dayDateEnd) {
-        let durationInHours = ( dayDateEnd - eventDateEnd)/1000 /60 /60;
-        emptyTime.rightInsert = durationInHours/(END_HOUR - START_HOUR) * 100;
+      if (eventDateEnd < dayDateEnd) {
+        let durationInHours = (dayDateEnd - eventDateEnd) / 1000 / 60 / 60;
+        emptyTime.rightInsert = durationInHours / (END_HOUR - START_HOUR) * 100;
         emptyTime.emptyTimeStart = eventDateEnd;
         emptyTime.emptyTimeEnd = dayDateEnd;
       }
     }
-    
+
     return emptyTime;
   }
 
   render() {
     const { title, capacity } = this.props.dataRoom;
+    const { isRoomInfoHidden, scrollLeftPixels } = this.state;
     const { eventsElements, isFullBusy } = this.makeEventsElements();
     let roomClasses = classNames({
       'room': true,
       'fullBusyRoom': isFullBusy
     });
+    let roomInfoClasses = classNames({
+      'roomInfo': true,
+      'roomInfoHidden': isRoomInfoHidden
+    });
+    let roomScheduleWrapperClasses = classNames({
+      'roomSceduleWrapper': true,
+      'roomScheduleWrapperScrolled': isRoomInfoHidden
+    });
     return (
       <div className={roomClasses}>
-        <div className="roomInfo">
+        <div
+          className={roomInfoClasses}
+          style={isRoomInfoHidden ? { left: scrollLeftPixels + 'px' } : {}}
+        >
           <div className="roomInfoName">
-            <TextTruncate
+            {!isRoomInfoHidden
+              ?
+              <TextTruncate
                 line={1}
                 truncateText="…"
                 text={title}
-            />
-            
+              />
+              : <span>{ title } </span>
+            }
+
           </div>
-          <div className="roomInfoCapacity">{capacity}</div>
+          {!isRoomInfoHidden
+            ?
+            <div className="roomInfoCapacity">{capacity}</div>
+            : null
+          }
+
         </div>
-        <div className="roomSceduleWrapper">
+        <div className={roomScheduleWrapperClasses}>
           <div className="roomSchedule">
             {eventsElements}
           </div>
