@@ -12,7 +12,7 @@ export default class ChoosedRoom extends Component {
             <div><b>16:00 &mdash; 16:30</b></div>
             <div>Готем &#183; 4 таж</div>
           </div>
-          <div className="clearInfoButton"><img src={clearButtonImg} />
+          <div className="clearInfoButton"><img alt="reset choosed settings" src={clearButtonImg} />
           </div>
         </div>
 

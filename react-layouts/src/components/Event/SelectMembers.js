@@ -122,7 +122,9 @@ class ChoosedMember extends Component {
       <div key={user.id} >
         <img className="userAvatar" alt="av" src={"https://api.adorable.io/avatars/25/"+ user.id +"abott@adorable.png"} />
         <span>{user.name}</span>
-        <span className="deleteAvatarButton" onClick={this.handleDeleteUserClick}><img src={deleteButtonImg} /></span>
+        <span className="deleteAvatarButton" onClick={this.handleDeleteUserClick}>
+          <img alt="delete member" src={deleteButtonImg} />
+        </span>
       </div>
     )
   }

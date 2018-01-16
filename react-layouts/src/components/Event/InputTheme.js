@@ -40,7 +40,7 @@ export default class InputTheme extends Component {
           type="reset"
           onClick={this.clickClearInputHandle}
         >
-          <img src={closeButton} />
+          <img alt="clear" src={closeButton} />
         </button>
       </div>
     )
