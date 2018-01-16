@@ -12,7 +12,7 @@ class Header extends Component {
 
     this.state = {
       isShowCreateButton: true,
-      sclollLeftPixels: 0
+      scrollLeftPixels: 0
     }
   }
 
@@ -30,15 +30,15 @@ class Header extends Component {
   }
 
   handleScroll = (e) => {
-    var scrollLeft = window.pageXOffset
-    this.setState({
-      sclollLeftPixels: scrollLeft
-    })
+    var scrollLeft = window.pageXOffset;
+      this.setState({
+        scrollLeftPixels: scrollLeft
+      })
   }
 
   render() {
     return (
-      <div id="header" style={{left: this.state.sclollLeftPixels}}>
+      <div id="header" style={{left: this.state.scrollLeftPixels}}>
         <img alt="logo of application" src={logo} />
         {this.state.isShowCreateButton
           ?
