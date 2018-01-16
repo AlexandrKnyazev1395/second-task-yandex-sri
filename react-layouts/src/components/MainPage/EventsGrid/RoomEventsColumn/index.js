@@ -7,10 +7,6 @@ import './roomEventsColumn.css'
 import testDataFloors from './../../testDataFloors';
 
 class RoomEventsColumn extends Component {
-  constructor(props) {
-    super(props)
-  }
-  
 
   makeFloors = () => {
     let floorsElements = []

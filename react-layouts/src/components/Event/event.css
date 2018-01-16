@@ -23,11 +23,17 @@
   }
 }
 
+
+.editEventGrid > div {
+  padding: 0px 20px;
+}
+
 @media screen and (max-width: 764px) {
   .editEventGrid {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto 1fr;
-    grid-row-gap: 10px;
+    grid-row-gap: 8px;
+    background-color: rgb(233, 236, 239);
     grid-template-areas: 
     "editEventPageTitle"
     "inputEventTheme"
@@ -35,13 +41,14 @@
     "selectEventMembers"
     "choosedRoom";
   }
+  .editEventGrid > div {
+    background-color: white;
+    padding: 16px 10px;
+  }
 }
 
 
 
-.editEventGrid > div {
-  padding: 0px 20px;
-}
 
 .editEventGrid input {
   margin-top: 4px;
@@ -80,6 +87,12 @@
   font-weight: 600;
   font-size: 20px;
   color: black;
+}
+
+@media screen and (max-width: 764px) {
+  .editEventPageTitleBlock h1 {
+    margin-top: 10px;
+  }
 }
 
 
@@ -139,6 +152,7 @@
 @media screen and (max-width: 764px) {
   .chooseDateAndTimeBlock > div {
     grid-template-columns: 1fr;
+    grid-row-gap: 10px;
     grid-template-areas: 
       "chooseDate"
       "chooseTime"
@@ -148,13 +162,17 @@
 .chooseDateAndTimeBlock .chooseDate {
   grid-area: chooseDate;
   box-sizing: border-box;
+  position: relative;
 }
 
-
-.chooseDateAndTimeBlock .dayPicker {
-  display: none;
+.chooseDateAndTimeBlock .chooseDateCalendar {
+  top: 60px;
   position: absolute;
   background-color: white;
+  box-shadow: 0 1px 16px rgba(0,0,0,0.2);
+}
+.chooseDateAndTimeBlock .chooseDateCalendar .DayPicker-wrapper {
+  outline: none;
 }
 
 .chooseDateAndTimeBlock .chooseTime {
@@ -334,8 +352,15 @@
 
 
 @media screen and (max-width: 764px) {
+  .footer {
+    padding: 0px 0px;
+    padding-top: 8px;
+    height: 100px;
+    background-color: rgb(233, 236, 239);
+  }
   .footer > div {
-    height: 36px;
+    padding-top: 8px;
+    height: 82px;
     display: grid;
     grid-template-rows: 1fr auto auto 1fr;
     grid-column-gap: 36px;
@@ -344,6 +369,7 @@
       ". deleteButton deleteButton ."
       ". cancelButton saveButton .";
     justify-content: center;
+    background-color: white;
   }
 }
 
@@ -372,6 +398,12 @@
 
 .footer .deleteButton {
   grid-area: deleteButton;
+}
+
+@media screen and (max-width: 764px) {
+  .footer .deleteButton {
+    color: red;
+  }
 }
 
 .footer .saveButton {

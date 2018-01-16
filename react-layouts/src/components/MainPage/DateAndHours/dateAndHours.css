@@ -13,7 +13,6 @@
 @media screen and (max-width: 764px) {
   .dateColumn {
     width: 100%;
-    
     height: 56px;
     border-bottom: 1px solid rgb(240,240,240);
   }
@@ -95,6 +94,27 @@
   }
   .dateColumn .DayPicker-Month {
     margin: 0 0.3rem;
+  }
+
+}
+
+@media screen and (max-width: 764px)  {
+  .threeMonthsCalendar {
+    width: 100%;
+    height: max-content;
+    left: 0px;
+  }
+  .dateColumn .DayPicker-Months {
+    margin: 10px 10px;
+    padding: 0px;
+    font-size: 0.8em;
+    flex-wrap: wrap;
+  }
+  .dateColumn .DayPicker-Month {
+    display: block;
+  }
+  .DayPicker-NavButton {
+    top: 1px;
   }
 }
 

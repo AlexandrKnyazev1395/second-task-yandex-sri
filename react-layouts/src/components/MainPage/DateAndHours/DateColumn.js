@@ -20,7 +20,7 @@ class DateColumn extends Component {
       selectedDate: new Date(),
       initialDate: new Date(),
       isShowCalendar: false,
-      sclollLeftPixels: 0
+      scrollLeftPixels: 0,
     }
   }
 
@@ -31,7 +31,7 @@ class DateColumn extends Component {
   handleScroll = (e) => {
     var scrollLeft = window.pageXOffset
     this.setState({
-      sclollLeftPixels: scrollLeft
+      scrollLeftPixels: scrollLeft
     })
   }
 
@@ -57,10 +57,10 @@ class DateColumn extends Component {
     const { initialDate, selectedDate } = this.state;
     let showPrev = true;
     let showNext = true;
-    if(selectedDate.getMonth() === initialDate.getMonth() && selectedDate.getDate()==1) {
+    if (selectedDate.getMonth() === initialDate.getMonth() && selectedDate.getDate() === 1) {
       showPrev = false;
     }
-    if(selectedDate.getMonth() === (initialDate.getMonth() + 2) && new Date(selectedDate.getTime() + 86400000).getDate() === 1) {
+    if (selectedDate.getMonth() === (initialDate.getMonth() + 2) && new Date(selectedDate.getTime() + 86400000).getDate() === 1) {
       showNext = false;
     }
     return {
@@ -99,14 +99,14 @@ class DateColumn extends Component {
 
   render() {
     const { dateText, additionalPart } = this.getChoosedDateText();
-    const locale = 'ru';
+
     const showNagivageButtons = this.checkIfShowNavigate();
-    const { 
+    const {
       showPrev: showPreviousDateButton,
       showNext: showNextDateButton
     } = showNagivageButtons;
     return (
-      <div className="dateColumn" style={{left: this.state.sclollLeftPixels}}>
+      <div className="dateColumn" style={{ left: this.state.scrollLeftPixels }}>
         {showPreviousDateButton
           ?
           <div className="buttonPreviousDate" onClick={this.handlePreviousDayClick}>
@@ -121,20 +121,11 @@ class DateColumn extends Component {
           {this.state.isShowCalendar
             ?
             <div className="threeMonthsCalendar">
-              <DayPicker
-                className="dayPicker"
-                canChangeMonth={false}
-                month={new Date()}
-                labels={{ previousMonth: false }}
-                numberOfMonths={3}
-                selectedDays={this.state.selectedDate}
-                onDayClick={this.handleDayClick}
-                locale={locale}
-                months={MONTHS[locale]}
-                weekdaysLong={WEEKDAYS_LONG[locale]}
-                weekdaysShort={WEEKDAYS_SHORT[locale]}
-                firstDayOfWeek={FIRST_DAY_OF_WEEK[locale]}
+              <Calendar
+                selectedDate={this.state.selectedDate}
+                handleDayClick={this.handleDayClick}
               />
+
             </div>
             :
             null
@@ -151,8 +142,31 @@ class DateColumn extends Component {
 
       </div>
     )
-
   }
 }
+
+
+class Calendar extends Component {
+  render() {
+    const locale = 'ru';
+    const numberOfMonths = 3;
+    return (
+      <DayPicker
+        className="dayPicker"
+        canChangeMonth={false}
+        month={new Date()}
+        numberOfMonths={numberOfMonths}
+        selectedDays={this.props.selectedDate}
+        onDayClick={this.props.handleDayClick}
+        locale={locale}
+        months={MONTHS[locale]}
+        weekdaysLong={WEEKDAYS_LONG[locale]}
+        weekdaysShort={WEEKDAYS_SHORT[locale]}
+        firstDayOfWeek={FIRST_DAY_OF_WEEK[locale]}
+      />
+    )
+  }
+}
+
 
 export default DateColumn;

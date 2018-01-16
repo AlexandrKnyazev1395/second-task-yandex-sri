@@ -35,6 +35,8 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
+        <div>
+        </div>
         <button className="cancelButton"><b>Отмена</b></button>
         <button className="deleteButton" onClick={this.handleDeleteButtonClick}><b>Удалить встречу</b></button>
         <button className="saveButton"><b>Сохранить</b></button>
@@ -55,7 +57,7 @@ export default class Footer extends Component {
           <img alt="" src={warningGirlImg} />
           <h1>Всреча будет <br/> удалена безвозвратно</h1>
           <button className="cancelButton" onClick={this.handleCancelButtonClick}><b>Отмена</b></button>
-          <button className="deleteButton" onClick={this.handleConfirmDeleteButtonClick}><b>Удалить</b></button>
+          <button className="sureDeleteButton" onClick={this.handleConfirmDeleteButtonClick}><b>Удалить</b></button>
         </Modal>
       </div>
     )

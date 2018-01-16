@@ -51,7 +51,6 @@
     padding-top: 0px;
     border-bottom: 2px solid rgb(246,246,249);
     height:  50px;
-    /*background-color:  rgb(246,246,249);*/
   }
 }
 
@@ -59,11 +58,28 @@
   padding-top: 4px;
 }
 
-.roomInfoName {
+.roomInfoHidden {
+  height: 24px;
+  padding: 5px;
+  position: absolute;
+  width: max-content;
+  background: white;
+  box-shadow: 0 1px 8px 0 rgba(0,44,92,0.28);
+  border-radius: 4px;
+  z-index: 999;
+}
+
+.roomInfo .roomInfoName {
   font-weight: 600;
   font-size: 15px;
   line-height: 17px
 }
+.roomInfoHidden .roomInfoName {
+  font-size: 11px;
+  color: #858E98;
+  letter-spacing: 0.4px;
+}
+
 .roomInfoCapacity {
   margin-top: 2px;
   font-size: 13px;
@@ -77,6 +93,10 @@
   /*variable from mainPage.css*/
   width: calc(100% - var(--left-column-width));
   background-color: transparent;
+}
+
+.roomScheduleWrapperScrolled {
+  margin-left: var(--left-column-width);
 }
 
 @media screen and (max-width: 764px) {
@@ -166,7 +186,14 @@
   box-shadow: 0 1px 16px rgba(0,0,0,0.2);
   border-radius: 6px;
 }
-
+@media screen and (max-width: 764px) {
+  .eventToolTipParent {
+    
+  }
+  .eventTooltip {
+    
+  }
+}
 .triangleBorder {
   background: transparent;
   position: relative;
