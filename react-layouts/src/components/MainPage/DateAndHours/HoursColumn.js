@@ -5,6 +5,7 @@ const END_HOUR = 23;
 
 class HoursColumn extends Component {
 
+
   makeHours = () => {
     let hours = [];
     for (let i = START_HOUR; i <= END_HOUR; i++) {
@@ -39,13 +40,27 @@ class CurrentTime extends Component {
     super(props)
     const now = new Date()
     this.state = {
-      currentTime: now
+      currentTime: now,
+      scrollTopPixels: 0
     }
     this.updateCurrentTimeEveryMinute(now);
   }
+
+  componentDidMount = () => {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
   componentDidUpdate() {
     this.updateCurrentTimeEveryMinute(this.state.currentTime);
   }
+  
+  handleScroll = (e) => {
+    var scrollTopPixels = window.pageYOffset;
+    this.setState({
+      scrollTopPixels: scrollTopPixels
+    })
+  }
+
   updateCurrentTimeEveryMinute = (now) => {
     const remainSeconds = 60 - now.getSeconds();
     setTimeout(function () {
@@ -82,6 +97,7 @@ class CurrentTime extends Component {
     }
     let currentTime = this.getCurrentTime(hour, minutes);
     let timeCircleMarginPercent = this.getTimeCircleMargin(hour, minutes);
+    const heightOfCurrentTime = `calc(100vh + ${this.state.scrollTopPixels -150}px`
     return (
       <div className="currentTime" style={{
         marginLeft: timeCircleMarginPercent + "%"
@@ -89,7 +105,8 @@ class CurrentTime extends Component {
         <div className="time">
           {currentTime}
         </div>
-        <div className="timeLine"></div>
+        <div className="timeLine" style={{height: heightOfCurrentTime}}>
+        </div>
       </div>
     )
   }

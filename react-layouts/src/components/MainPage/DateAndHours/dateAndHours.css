@@ -175,6 +175,6 @@
   left: 50%;
   border-top: 1px solid #007DFF;
   border-right: 1px solid #007DFF;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 85px);
   z-index: 10;
 }
