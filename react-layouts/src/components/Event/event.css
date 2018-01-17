@@ -166,6 +166,7 @@
 }
 
 .chooseDateAndTimeBlock .chooseDateCalendar {
+  z-index: 999;
   top: 60px;
   position: absolute;
   background-color: white;
