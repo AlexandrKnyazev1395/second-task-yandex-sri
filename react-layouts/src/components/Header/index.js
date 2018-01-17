@@ -38,7 +38,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div id="header" style={{left: this.state.scrollLeftPixels}}>
+      <div className="header" style={{left: this.state.scrollLeftPixels}}>
         <img alt="logo of application" src={logo} />
         {this.state.isShowCreateButton
           ?

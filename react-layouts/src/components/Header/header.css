@@ -1,4 +1,4 @@
-#header {
+.header {
   display:flex;
   position: relative;
   box-sizing: border-box ;
@@ -10,16 +10,16 @@
   padding-bottom: 21.6px;
   border-bottom: 1px solid rgb(240,240,240);
 }
-#header img {
+.header img {
   margin-left: 24px;
 }
 @media screen and (max-width: 764px) {
-  #header img  {
+  .header img  {
     margin-left: -8px;
   }
 }
 
-#header .button_create-event{
+.header .button_create-event{
   margin-right: 20px;
   width: 140px;
   flex-basis: 140px;
@@ -31,15 +31,16 @@
   cursor: pointer;
 }
 @media screen and (max-width: 764px) {
-  #header .button_create-event {
+  .header .button_create-event {
     display: none;
   }
 }
-#header .button_create-event:hover{
+
+.header .button_create-event:hover{
   background-color: rgb(2, 105, 202);
 }
 
-#header .button_create-event span {
+.header .button_create-event span {
   font-family: HelveticaNeue-Medium, Open Sans, sans-serif;
   font-weight: 600;
   font-size: 13px;

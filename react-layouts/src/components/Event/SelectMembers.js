@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import SearchInput, { createFilter } from 'react-search-input'
 
-import testUsersData from './testUsersData'
+import testUsersData from './../../testData/testUsersData'
 
 import deleteButtonImg from './../../assets/close.svg';
+
+const KEYS_TO_FILTER_USERS = ['name', 'homeFloor'];
 
 export default class SelectMembers extends Component {
   constructor(props) {
@@ -16,7 +18,7 @@ export default class SelectMembers extends Component {
     }
     this.searchUpdated = this.searchUpdated.bind(this)
   }
-
+  
   handleInputFocus = () => {
     this.setState({
       isFocused: true
@@ -58,7 +60,6 @@ export default class SelectMembers extends Component {
   }
 }
 
-const KEYS_TO_FILTER_USERS = ['name', 'homeFloor']
 
 class Suggestions extends Component {
   render() {
@@ -78,6 +79,7 @@ class Suggestions extends Component {
     )
   }
 }
+
 
 class Suggestion extends Component {
 
