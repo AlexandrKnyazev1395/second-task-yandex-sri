@@ -13,7 +13,6 @@ export default class Footer extends Component {
   }
 
   handleSaveButtonClick = () => {
-    debugger;
     this.setState({
       isEventSaved: true
     })
