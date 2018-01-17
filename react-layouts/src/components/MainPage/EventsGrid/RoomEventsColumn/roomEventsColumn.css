@@ -5,31 +5,31 @@
   z-index: 2;
 }
 
-.floorInfo {
+.roomEventsColumn .floorInfo {
   padding-top: 23px;
   padding-bottom: 2px;
   margin-bottom: -8px;
 }
 
 
-.floorInfo, .roomInfo {
+.roomEventsColumn .floorInfo, .roomEventsColumn .roomInfo {
   box-sizing: border-box;
   /*variable from mainPage.css*/
   flex-basis: var(--left-column-width);
   width: var(--left-column-width);
   padding-left: 22px;
 }
-
 @media screen and (max-width: 764px) {
-  .floorInfo {
+  .roomEventsColumn .floorInfo {
     padding-bottom: 10px;
     background-color:  rgb(246,246,249);
   }
-  .roomInfo {
+  .roomEventsColumn .roomInfo {
     background-color:  white;
   }
 }
-.floorName {
+
+.roomEventsColumn .floorInfo .floorName {
   font-size: 11px;
   text-transform: uppercase;
   font-family: HelveticaNeue, Open-sans, sans-serif;
@@ -38,27 +38,25 @@
   word-spacing: 0.4px
 }
 
-
-.room {
+.roomEventsColumn .room {
   display: flex;
   padding-top: 8px;
   height: 44px;
   font-family: HelveticaNeue, Open Sans, sans-serif;
 }
-
 @media screen and (max-width: 764px) {
-  .room {
+  .roomEventsColumn .room {
     padding-top: 0px;
     border-bottom: 2px solid rgb(246,246,249);
     height:  50px;
   }
 }
 
-.roomInfo {
+.roomEventsColumn .roomInfo {
   padding-top: 4px;
 }
 
-.roomInfoHidden {
+.roomEventsColumn .roomInfoHidden {
   height: 24px;
   padding: 5px;
   position: absolute;
@@ -68,44 +66,40 @@
   border-radius: 4px;
   z-index: 999;
 }
-
-.roomInfo .roomInfoName {
+.roomEventsColumn .roomInfo .roomInfoName {
   font-weight: 600;
   font-size: 15px;
   line-height: 17px
 }
-.roomInfoHidden .roomInfoName {
+
+.roomEventsColumn .roomInfoHidden .roomInfoName {
   font-size: 11px;
   color: #858E98;
   letter-spacing: 0.4px;
 }
 
-.roomInfoCapacity {
+.roomEventsColumn .roomInfo .roomInfoCapacity {
   margin-top: 2px;
   font-size: 13px;
   line-height: 17px
 }
-.fullBusyRoom {
+
+.roomEventsColumn .fullBusyRoom {
   color: #858E98;
 }
 
-.roomSceduleWrapper {
+.roomEventsColumn .roomSceduleWrapper {
   /*variable from mainPage.css*/
   width: calc(100% - var(--left-column-width));
   background-color: transparent;
 }
 
-.roomScheduleWrapperScrolled {
+.roomEventsColumn .roomScheduleWrapperScrolled {
+  /*variable from mainPage.css*/
   margin-left: var(--left-column-width);
 }
 
-@media screen and (max-width: 764px) {
-  .roomSceduleWrapper {
-    
-  }
-}
-
-.roomSchedule {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule {
   display: flex;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -114,48 +108,44 @@
   padding-left: 3.2%;
   padding-right: 3.2%;
 }
-
 @media screen and (max-width: 764px) {
-  .roomSchedule {
+  .roomEventsColumn .roomSceduleWrapper .roomSchedule {
     height: 100%;
     margin-top: 0px;
     margin-bottom: 0px;
   }
 }
 
-.event {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event {
   height: 28px;
   cursor: pointer;
 }
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event:hover {
+  background-color: #99A9B9;
+}
 @media screen and (max-width: 764px) {
-  .event {
+  .roomEventsColumn .roomSceduleWrapper .roomSchedule .event {
     height: 100%;
   }
 }
 
-
-.event:hover {
-  background-color: #99A9B9;
-}
-
-.emptyTime {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .emptyTime {
   background-color: white;
   height: 28px;
   cursor: pointer;
 }
-
-@media screen and (max-width: 764px) {
-  .emptyTime {
-    height: 100%;
-  }
-}
-
-.emptyTime:hover {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .emptyTime:hover {
   background-color: #2B50FD;
   transform: scaleY(1.05)
 }
 
-.pluseSign {
+@media screen and (max-width: 764px) {
+  .roomEventsColumn .roomSceduleWrapper .roomSchedule .emptyTime {
+    height: 100%;
+  }
+}
+
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .emptyTime .pluseSign {
   width: 100%;
   height: 100%;
   color:white;
@@ -164,18 +154,31 @@
   font-size: 24px;
   margin-top: -3px;
 }
-
 @media screen and (max-width: 764px) {
-  .pluseSign {
-    margin-top: 5px;
+  .roomEventsColumn .roomSceduleWrapper .roomSchedule .emptyTime .pluseSign {
+    margin-top: 8px;
   }
 }
 
-.eventToolTipParent {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent {
   position: relative;
   z-index: 999;
 }
-.eventTooltip {
+
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .triangleBorder {
+  background: transparent;
+  position: relative;
+}
+
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .triangleBorder:before {
+  content: ''; 
+  position: absolute;
+  left: 158px;
+  bottom: 0px;
+  border: 9px solid transparent;	border-bottom: 9px solid white;
+}
+
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip {
   position: absolute;
   width: 338px;
   left: calc(-169px + 50%);
@@ -186,28 +189,8 @@
   box-shadow: 0 1px 16px rgba(0,0,0,0.2);
   border-radius: 6px;
 }
-@media screen and (max-width: 764px) {
-  .eventToolTipParent {
-    
-  }
-  .eventTooltip {
-    
-  }
-}
-.triangleBorder {
-  background: transparent;
-  position: relative;
-}
 
-.triangleBorder:before {
-  content: ''; 
-  position: absolute;
-  left: 158px;
-  bottom: 0px;
-  border: 9px solid transparent;	border-bottom: 9px solid white;
-}
-
-.editEventButton {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .editEventButton {
   float: right;
   margin-right: 5px;
   margin-top: 5px;
@@ -217,15 +200,16 @@
   border-radius: 100px;
   text-align: center;
 }
-.editEventButton:hover {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .editEventButton:hover {
   background-color: rgb(204, 206, 207);
 }
-.editEventButton img {
+
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .editEventButton img {
   margin-top: 6px;
   opacity: 0.43;
 }
 
-.eventInfo h1 {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip  .eventInfo h1 {
   margin: 12px 16px 2px 16px;
   font-family: HelveticaNeue-Bold, Open Sans, sans-serif;
   font-weight: 600;
@@ -235,8 +219,7 @@
   line-height: 24px;
 }
 
-
-.eventInfo p {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .eventInfo p {
   margin: 0px 16px;
   font-family: HelveticaNeue, Open Sans, sans-serif;
   font-size: 13px;
@@ -245,16 +228,19 @@
   line-height: 17px;
 }
 
-.eventInfo p:last-child {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .eventInfo p:last-child {
   margin-top: 19px;
 }
-.mentorName {
+
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .eventInfo .mentorName {
   margin-left: 9px;
 }
-.amountPeople {
+
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .eventInfo .amountPeople {
   color: rgb(138, 138, 138);
 }
-.mentorAvatar {
+
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .eventInfo .mentorAvatar {
   position: relative;
   top: 6px;
   width: 24px;
