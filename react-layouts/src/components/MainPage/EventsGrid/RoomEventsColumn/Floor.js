@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Room from './Room';
 
-import testDataEvents from './../../testDataEvents';
+import testDataEvents from './../../../../testData/testDataEvents'
 
 export default class Floor extends Component {
 

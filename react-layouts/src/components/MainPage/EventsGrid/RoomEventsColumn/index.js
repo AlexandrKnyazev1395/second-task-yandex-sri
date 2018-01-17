@@ -4,7 +4,7 @@ import Floor from './Floor';
 
 import './roomEventsColumn.css'
 
-import testDataFloors from './../../testDataFloors';
+import testDataFloors from '../../../../testData/testDataFloors'
 
 class RoomEventsColumn extends Component {
 
