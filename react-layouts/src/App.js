@@ -39,8 +39,8 @@ class App extends Component {
 
   render() {
     const scrollPixels = {
-      top: scrollTopPixels,
-      left: scrollLeftPixels
+      top: this.state.scrollTopPixels,
+      left: this.state.scrollLeftPixels
     }
     return (
       <Router>
