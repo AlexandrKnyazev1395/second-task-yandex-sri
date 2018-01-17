@@ -17,7 +17,7 @@
 }
 
 
-.dateAndHours {
+.schedule .dateAndHours {
   display: grid;
   grid-template-rows: 46px;
   grid-template-columns: var(--left-column-width) auto;
@@ -27,7 +27,7 @@
 }
 
 @media screen and (max-width: 764px) {
-  .dateAndHours {
+  .schedule .dateAndHours {
     grid-template-columns: var(--left-column-width) calc(100% - var(--left-column-width));
     grid-template-rows: 56px 32px;
     grid-template-areas: 
@@ -37,7 +37,7 @@
 }
 
 
-.eventsGrid {
+.schedule .eventsGrid {
   display: grid;
   grid-template-columns: 100% 100%;
   grid-template-areas: 
@@ -45,7 +45,7 @@
 }
 
 @media screen and (max-width: 764px) {
-  .eventsGrid {
+  .schedule .eventsGrid {
     display: grid;
     grid-template-columns: calc(var(--mobile-right-column-width) + var(--left-column-width)) calc(var(--mobile-right-column-width) + var(--left-column-width));
     grid-template-areas: 

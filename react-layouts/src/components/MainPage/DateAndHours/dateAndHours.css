@@ -1,4 +1,4 @@
-.dateColumn {
+.dateAndHours .dateColumn {
   position: relative;
   box-sizing: border-box;
   grid-area: dateColumn;
@@ -6,19 +6,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 12;
   background-color: white;
 }
-
 @media screen and (max-width: 764px) {
-  .dateColumn {
+  .dateAndHours .dateColumn {
     width: 100%;
     height: 56px;
     border-bottom: 1px solid rgb(240,240,240);
   }
 }
 
-.buttonNextDate, .buttonPreviousDate {
+.dateAndHours .dateColumn .buttonNextDate, .buttonPreviousDate {
   width: 24px;
   height: 24px;
   background: rgb(233, 236, 239);
@@ -27,18 +26,20 @@
   cursor: pointer;
   user-select: none;
 }
-.buttonNextDate:hover, .buttonPreviousDate:hover {
+.dateAndHours .dateColumn .buttonNextDate:hover, 
+.dateAndHours .dateColumn .buttonPreviousDate:hover {
   background-color: rgb(190, 192, 194);
 }
 
-.buttonNextDate img, .buttonPreviousDate img {
+.dateAndHours .dateColumn .buttonNextDate img, 
+.dateAndHours .dateColumn .buttonPreviousDate img {
   margin-top: 7px;
   width: 10px;
   height: 10px;
   transform: scale(1.2)
 }
 
-.choosedDate {
+.dateAndHours .dateColumn .choosedDate {
   box-sizing: border-box;
   width: 146px;
   padding: 5px 13.5px;
@@ -50,7 +51,7 @@
   text-align: center;
   user-select: none;
 }
-.choosedDate:hover {
+.dateAndHours .dateColumn .choosedDate:hover {
   border-radius: 100px;
   background-color: rgba(190, 192, 194, 0.2);
 }
@@ -62,14 +63,16 @@
   background-color: white;
   width: 735px;
   height: 260px;
-  /*z-index: 999;*/
   border-radius: 6px;
 }
 .dateColumn .DayPicker-wrapper {
+  margin-top: 20px;
   outline: none;
 }
 .dateColumn .DayPicker-Months {
-  margin: 15px 20px;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   flex-wrap: nowrap;
   font-size: 0.8em;
 }
@@ -80,7 +83,6 @@
   background-color: #007DFF;
   border-radius: 100%;
 }
-
 @media screen and (min-width: 765px) and (max-width: 1024px)  {
   .threeMonthsCalendar {
     margin-left: -20px;
@@ -95,9 +97,7 @@
   .dateColumn .DayPicker-Month {
     margin: 0 0.3rem;
   }
-
 }
-
 @media screen and (max-width: 764px)  {
   .threeMonthsCalendar {
     width: 100%;
@@ -119,7 +119,7 @@
 }
 
 
-.hoursColumn {
+.dateAndHours .hoursColumn {
   grid-area: hoursColumn;
   display: flex;
   box-sizing: border-box;
@@ -127,16 +127,14 @@
   align-items: center;
   height: 45px;
 }
-
-
 @media screen and (max-width: 764px) {
-  .hoursColumn {
+  .dateAndHours .hoursColumn {
     width: var(--mobile-right-column-width);
     height: 32px;
   }
 }
 
-.hour {
+.dateAndHours .hoursColumn .hour {
   flex-grow: 1;
   height: 13px;
   font-family: HelveticaNeue, Open Sans, sans-serif;
@@ -146,19 +144,19 @@
   letter-spacing: 0.4px;
   text-align: center;
 }
-.hour:first-child {
+.dateAndHours .hoursColumn .hour:first-child {
   margin-left: -3px;
 }
 
 
-.currentTime {
+.dateAndHours .hoursColumn .currentTime {
   width: 6.29%;
   position: absolute;
   display: flex;
   justify-content: center;
 }
 
-.time {
+.dateAndHours .hoursColumn .currentTime .time {
   width: 49px;
   padding-top: 3px;
   padding-bottom: 4px;
@@ -172,7 +170,7 @@
   text-align: center;
 }
 
-.timeLine {
+.dateAndHours .hoursColumn .currentTime .timeLine {
   position: absolute;
   left: 50%;
   border-top: 1px solid #007DFF;
