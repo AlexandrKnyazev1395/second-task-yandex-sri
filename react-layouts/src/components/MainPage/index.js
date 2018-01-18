@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 import EventsGrid from './EventsGrid';
 import DateAndHours from './DateAndHours'
@@ -17,6 +18,7 @@ export default class MainPage extends Component {
 }
 
 class Schedule extends Component {
+
   render() {
     return (
       <div className="schedule">
@@ -26,6 +28,10 @@ class Schedule extends Component {
     )
   }
 }
+
+
+
+
 
 
 

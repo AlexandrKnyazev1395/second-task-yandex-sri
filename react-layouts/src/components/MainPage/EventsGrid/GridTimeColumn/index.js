@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 import HourColumn from './HourColumn'
 
 import './gridTimeColumn.css'
 
+import { setScheduleHeight } from '../../../../actions/scheduleHeight'
 const START_HOUR = 8;
 const END_HOUR = 23;
 
 class GridTimeColumn extends Component {
+
+  findScheduleHeight = (e) => {
+    const scheduleHeight = e.clientHeight;
+    this.props.setScheduleHeight(scheduleHeight)
+  }
+
   makeHoursGrid = () => {
     let hoursColumns = [];
     for (let i = START_HOUR; i <= END_HOUR + 1; i++) {
@@ -20,11 +28,19 @@ class GridTimeColumn extends Component {
   render() {
     const hoursGrid = this.makeHoursGrid();
     return (
-      <div className="gridTimeColumn">
+      <div className="gridTimeColumn" ref={this.findScheduleHeight}>
         {hoursGrid}
       </div>
     )
   }
 }
 
-export default GridTimeColumn;
+const mapDispatchToProps = {
+  setScheduleHeight: setScheduleHeight
+}
+
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(GridTimeColumn);

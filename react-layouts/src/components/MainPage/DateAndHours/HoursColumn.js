@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 const START_HOUR = 8;
 const END_HOUR = 23;
@@ -27,7 +28,7 @@ class HoursColumn extends Component {
     return (
       <div className="hoursColumn">
         {hours}
-        <CurrentTime />
+        <CurrentTime height={this.props.scheduleHeight}/>
       </div>
     )
   }
@@ -97,10 +98,10 @@ class CurrentTime extends Component {
     }
     let currentTime = this.getCurrentTime(hour, minutes);
     let timeCircleMarginPercent = this.getTimeCircleMargin(hour, minutes);
-    const heightOfCurrentTime = `calc(100vh + ${this.state.scrollTopPixels -150}px`
+    const heightOfCurrentTime = this.props.height + 30 + 'px';
     return (
       <div className="currentTime" style={{
-        marginLeft: timeCircleMarginPercent + "%"
+        marginLeft: timeCircleMarginPercent + "%",
       }}>
         <div className="time">
           {currentTime}
@@ -112,4 +113,8 @@ class CurrentTime extends Component {
   }
 }
 
-export default HoursColumn;
+const mapStateToProps = (state) => ({
+    scheduleHeight: state.scheduleHeight
+})
+
+export default connect(mapStateToProps)(HoursColumn);
