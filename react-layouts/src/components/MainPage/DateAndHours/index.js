@@ -10,7 +10,9 @@ export default class DateEndHours extends Component {
     return (
       <div className="dateAndHours">
         <DateColumn />
+        <div className="emptyWhite"></div>
         <HoursColumn />
+        
       </div>
     )
   }

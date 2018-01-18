@@ -8,7 +8,6 @@
 .roomEventsColumn .floorInfo {
   padding-top: 23px;
   padding-bottom: 2px;
-  margin-bottom: -8px;
 }
 
 
@@ -18,6 +17,7 @@
   flex-basis: var(--left-column-width);
   width: var(--left-column-width);
   padding-left: 22px;
+  background-color:  white;
 }
 @media screen and (max-width: 764px) {
   .roomEventsColumn .floorInfo {
@@ -40,9 +40,10 @@
 
 .roomEventsColumn .room {
   display: flex;
-  padding-top: 8px;
+  padding-top: 0px;
   height: 44px;
   font-family: HelveticaNeue, Open Sans, sans-serif;
+  
 }
 @media screen and (max-width: 764px) {
   .roomEventsColumn .room {
@@ -53,7 +54,7 @@
 }
 
 .roomEventsColumn .roomInfo {
-  padding-top: 4px;
+  padding-top: 12px;
 }
 
 .roomEventsColumn .roomInfoHidden {
@@ -91,6 +92,7 @@
 .roomEventsColumn .roomSceduleWrapper {
   /*variable from mainPage.css*/
   width: calc(100% - var(--left-column-width));
+  padding-top: 8px;
   background-color: transparent;
 }
 

@@ -23,7 +23,9 @@
   grid-template-columns: var(--left-column-width) auto;
   grid-template-areas: 
     "dateColumn hoursColumn";
+  border-top: 1px solid rgb(240,240,240);
   border-bottom: 1px solid rgb(240,240,240);
+  background-color: white;
 }
 
 @media screen and (max-width: 764px) {
@@ -32,7 +34,7 @@
     grid-template-rows: 56px 32px;
     grid-template-areas: 
       "dateColumn dateColumn"
-      ". hoursColumn";
+      "emptyWhite hoursColumn";
   }
 }
 

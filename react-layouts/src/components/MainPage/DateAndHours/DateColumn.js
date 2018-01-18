@@ -106,7 +106,7 @@ class DateColumn extends Component {
       showNext: showNextDateButton
     } = showNagivageButtons;
     return (
-      <div className="dateColumn" style={{ left: this.state.scrollLeftPixels }}>
+      <div className="dateColumn" >
         {showPreviousDateButton
           ?
           <div className="buttonPreviousDate" onClick={this.handlePreviousDayClick}>
