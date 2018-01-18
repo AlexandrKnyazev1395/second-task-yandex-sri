@@ -20,7 +20,7 @@ class DateColumn extends Component {
       selectedDate: new Date(),
       initialDate: new Date(),
       isShowCalendar: false,
-      scrollLeftPixels: 0,
+      scrollTopPixels: 0,
     }
   }
 
@@ -29,9 +29,9 @@ class DateColumn extends Component {
   }
 
   handleScroll = (e) => {
-    var scrollLeft = window.pageXOffset
+    var scrollTop = window.pageYOffset
     this.setState({
-      scrollLeftPixels: scrollLeft
+      scrollTop: scrollTop
     })
   }
 
@@ -97,6 +97,17 @@ class DateColumn extends Component {
     });
   }
 
+  findElemTopPixels = () => {
+    const headerHeight = 71;
+    const scrollTop = this.state.scrollTop;
+    if(scrollTop > headerHeight) {
+      return 0
+    }
+    else {
+      return headerHeight - scrollTop;
+    }
+  }
+
   render() {
     const { dateText, additionalPart } = this.getChoosedDateText();
 
@@ -105,8 +116,9 @@ class DateColumn extends Component {
       showPrev: showPreviousDateButton,
       showNext: showNextDateButton
     } = showNagivageButtons;
+    const topDateColumnPixels = this.findElemTopPixels();
     return (
-      <div className="dateColumn" >
+      <div className="dateColumn" style={{top: topDateColumnPixels}} >
         {showPreviousDateButton
           ?
           <div className="buttonPreviousDate" onClick={this.handlePreviousDayClick}>

@@ -20,7 +20,7 @@ class GridTimeColumn extends Component {
     let hoursColumns = [];
     for (let i = START_HOUR; i <= END_HOUR + 1; i++) {
       hoursColumns.push(
-        <HourColumn key={"hour_" +i} />
+        <HourColumn key={"hour_" +i} hours={{startHour: i-1, endHour: i }} />
       )
     }
     return hoursColumns;
@@ -38,7 +38,6 @@ class GridTimeColumn extends Component {
 const mapDispatchToProps = {
   setScheduleHeight: setScheduleHeight
 }
-
 
 export default connect(
   null,

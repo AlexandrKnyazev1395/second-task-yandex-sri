@@ -23,8 +23,6 @@
   grid-template-columns: var(--left-column-width) auto;
   grid-template-areas: 
     "dateColumn hoursColumn";
-  border-top: 1px solid rgb(240,240,240);
-  border-bottom: 1px solid rgb(240,240,240);
   background-color: white;
 }
 
