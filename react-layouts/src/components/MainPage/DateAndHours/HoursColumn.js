@@ -92,8 +92,9 @@ class CurrentTime extends Component {
   render() {
     let date = new Date();
     let hour = date.getHours();
-    let minutes = date.getMinutes();
-    if (hour < START_HOUR - 1 || hour >= END_HOUR) {
+    let minutes = date.getMinutes();    
+    if (hour -1  < START_HOUR || hour >= END_HOUR) {
+
       return null;
     }
     let currentTime = this.getCurrentTime(hour, minutes);

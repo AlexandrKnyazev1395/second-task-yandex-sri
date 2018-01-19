@@ -166,13 +166,26 @@
   position: relative;
   z-index: 999;
 }
+@media screen and (max-width: 764px) {
+  .roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent {
+    position: fixed;
+  }
+}
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .triangleBorder {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .triangleBorder {
   background: transparent;
   position: relative;
 }
+@media screen and (max-width: 764px) {
+  .roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+  .eventToolTipParent .triangleBorder {
+    display: none;
+  }
+}
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .triangleBorder:before {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .triangleBorder:before {
   content: ''; 
   position: absolute;
   left: 158px;
@@ -180,7 +193,8 @@
   border: 9px solid transparent;	border-bottom: 9px solid white;
 }
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .eventTooltip {
   position: absolute;
   width: 338px;
   left: calc(-169px + 50%);
@@ -192,7 +206,18 @@
   border-radius: 6px;
 }
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .editEventButton {
+@media screen and (max-width: 764px) {
+  .roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+  .eventToolTipParent .eventTooltip {
+    position: fixed;
+    width: 100%;
+    top: calc(50% - 60.4px);
+    left: 0;
+  }
+}
+
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .eventTooltip .editEventButton {
   float: right;
   margin-right: 5px;
   margin-top: 5px;
@@ -202,16 +227,19 @@
   border-radius: 100px;
   text-align: center;
 }
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .editEventButton:hover {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .eventTooltip .editEventButton:hover {
   background-color: rgb(204, 206, 207);
 }
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .editEventButton img {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .eventTooltip .editEventButton img {
   margin-top: 6px;
   opacity: 0.43;
 }
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip  .eventInfo h1 {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .eventTooltip  .eventInfo h1 {
   margin: 12px 16px 2px 16px;
   font-family: HelveticaNeue-Bold, Open Sans, sans-serif;
   font-weight: 600;
@@ -221,7 +249,8 @@
   line-height: 24px;
 }
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .eventInfo p {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .eventTooltip .eventInfo p {
   margin: 0px 16px;
   font-family: HelveticaNeue, Open Sans, sans-serif;
   font-size: 13px;
@@ -230,19 +259,23 @@
   line-height: 17px;
 }
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .eventInfo p:last-child {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .eventTooltip .eventInfo p:last-child {
   margin-top: 19px;
 }
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .eventInfo .mentorName {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .eventTooltip .eventInfo .mentorName {
   margin-left: 9px;
 }
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .eventInfo .amountPeople {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .eventTooltip .eventInfo .amountPeople {
   color: rgb(138, 138, 138);
 }
 
-.roomEventsColumn .roomSceduleWrapper .roomSchedule .event .eventToolTipParent .eventTooltip .eventInfo .mentorAvatar {
+.roomEventsColumn .roomSceduleWrapper .roomSchedule .event 
+.eventToolTipParent .eventTooltip .eventInfo .mentorAvatar {
   position: relative;
   top: 6px;
   width: 24px;
