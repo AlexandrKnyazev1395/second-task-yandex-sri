@@ -44,7 +44,7 @@ class Header extends Component {
             <img alt="logo of application" src={logo} />
             {this.state.isShowCreateButton
               ?
-              <button className="button_create-event">
+              <button className="buttonCreateEvent">
                 <span>
                   Создать встречу
               </span>

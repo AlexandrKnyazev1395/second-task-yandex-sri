@@ -29,7 +29,7 @@
   align-items: center;
 }
 
-.header .button_create-event{
+.header .buttonCreateEvent{
   margin-right: 20px;
   width: 140px;
   flex-basis: 140px;
@@ -40,16 +40,20 @@
   cursor: pointer;
 }
 @media screen and (max-width: 764px) {
-  .header .button_create-event {
+  .header .buttonCreateEvent {
     display: none;
   }
 }
 
-.header .button_create-event:hover{
-  background-color: rgb(2, 105, 202);
+.header .buttonCreateEvent:hover{
+  background-color: rgb(0, 89, 255);
 }
 
-.header .button_create-event span {
+.header .buttonCreateEvent:active{
+  background-color: rgb(0, 62, 179);
+}
+
+.header .buttonCreateEvent span {
   font-family: HelveticaNeue-Medium, Open Sans, sans-serif;
   font-weight: 600;
   font-size: 13px;
