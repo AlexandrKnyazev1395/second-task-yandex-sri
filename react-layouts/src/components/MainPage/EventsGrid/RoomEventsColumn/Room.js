@@ -169,7 +169,7 @@ export default class Room extends Component {
       <div className={roomClasses}>
         <div
           className={roomInfoClasses}
-          style={isRoomInfoHidden ? { left: scrollLeftPixels + 'px' } : {}}
+          style={isRoomInfoHidden ? { transform: 'translate('+(scrollLeftPixels + 'px)' )} : {}}
         >
           <div className="roomInfoName">
             {!isRoomInfoHidden

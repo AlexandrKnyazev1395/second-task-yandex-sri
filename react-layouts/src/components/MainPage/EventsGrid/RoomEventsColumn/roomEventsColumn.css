@@ -65,7 +65,9 @@
   background: white;
   box-shadow: 0 1px 8px 0 rgba(0,44,92,0.28);
   border-radius: 4px;
+  transition: transform 0.1s linear;
   z-index: 11;
+
 }
 .roomEventsColumn .roomInfo .roomInfoName {
   font-weight: 600;
