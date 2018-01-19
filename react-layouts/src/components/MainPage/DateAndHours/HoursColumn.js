@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import startAndEndHours from '../../../reducers/startAndEndHours';
 
 class HoursColumn extends Component {
 

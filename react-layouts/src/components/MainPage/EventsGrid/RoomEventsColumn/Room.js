@@ -6,9 +6,6 @@ import classNames from 'classnames';
 import Event from './Event';
 import EmptyTime from './EmptyTime';
 
-const startHour = 8;
-const endHour = 23;
-
 class Room extends Component {
   constructor(props) {
     super(props)
