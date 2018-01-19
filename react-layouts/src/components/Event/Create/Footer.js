@@ -29,27 +29,33 @@ export default class Footer extends Component {
       <div>
         <button className="cancelButton"><b>Отмена</b></button>
         <button className="saveButton" onClick={this.handleSaveButtonClick}><b>Создать встречу</b></button>
-        <Modal
-          isOpen={this.state.isEventSaved}
-          contentLabel="Modal"
-          className={{
-            base: 'eventModal',
-            afterOpen: 'eventModalAfterOpen',
-            beforeClose: 'eventModalBeforeClose'
-          }}
-          overlayClassName={{
-            base: 'eventModalOverlay',
-            afterOpen: 'eventModalOverlayAfterOpen',
-            beforeClose: 'eventModalOverlayBeforeClose'
-          }}
-        >
-          <img alt="" src={congratulationsImg} />
-          <h1>Всреча создана!</h1>
-          <p>14 декабря, 15:00 - 17:00</p>
-          <p>Готем &#183; 4 этаж</p>
-          <button className="okButton" onClick={this.handleOkButtonClick}><b>Хорошо</b></button>
-        </Modal>
+        <EventCreatedModal isOpen={this.state.isEventSaved} />
       </div>
     )
   }
+}
+
+const EventCreatedModal = ({isOpen}) => {
+  return (
+    <Modal
+      isOpen={isOpen}
+      contentLabel="Modal"
+      className={{
+        base: 'eventModal',
+        afterOpen: 'eventModalAfterOpen',
+        beforeClose: 'eventModalBeforeClose'
+      }}
+      overlayClassName={{
+        base: 'eventModalOverlay',
+        afterOpen: 'eventModalOverlayAfterOpen',
+        beforeClose: 'eventModalOverlayBeforeClose'
+      }}
+    >
+      <img alt="" src={congratulationsImg} />
+      <h1>Всреча создана!</h1>
+      <p>14 декабря, 15:00 - 17:00</p>
+      <p>Готем &#183; 4 этаж</p>
+      <button className="okButton" onClick={this.handleOkButtonClick}><b>Хорошо</b></button>
+    </Modal>
+  )
 }
