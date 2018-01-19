@@ -99,12 +99,12 @@ class DateColumn extends Component {
 
   findElemTopPixels = () => {
     const headerHeight = 71;
-    const scrollTop = this.state.scrollTop;
-    if(scrollTop > headerHeight) {
-      return 0
+    const scrollTop = this.state.scrollTop || 0;
+    if(scrollTop < headerHeight) {
+      return -scrollTop;
     }
     else {
-      return headerHeight - scrollTop;
+      return -headerHeight;
     }
   }
 
@@ -118,7 +118,7 @@ class DateColumn extends Component {
     } = showNagivageButtons;
     const topDateColumnPixels = this.findElemTopPixels();
     return (
-      <div className="dateColumn" style={{top: topDateColumnPixels}} >
+      <div className="dateColumn" style={{transform: 'translate(0, '+( topDateColumnPixels + 'px)' )}} >
         {showPreviousDateButton
           ?
           <div className="buttonPreviousDate" onClick={this.handlePreviousDayClick}>
