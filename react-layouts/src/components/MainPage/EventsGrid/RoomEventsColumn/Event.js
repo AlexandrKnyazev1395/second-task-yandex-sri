@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import edit from '../../../../assets/edit.svg'
 import mentorAvatar from '../../../../assets/emoji1.svg';
 
-const START_HOUR = 8;
-const END_HOUR = 23;
-
-
-export default class Event extends Component {
+class Event extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -16,12 +13,13 @@ export default class Event extends Component {
   }
 
   calculateWidth = () => {
+    const { startHour, endHour } = this.props.startAndEndHours;
     const { dataEvent } = this.props;
     let widthPercents = 0;
     const dateStart = new Date(dataEvent.dateStart);
     const dateEnd = new Date(dataEvent.dateEnd);
     let durationInHours = (dateEnd - dateStart) / 1000 / 60 / 60;
-    widthPercents = durationInHours / (END_HOUR - START_HOUR) * 100;
+    widthPercents = durationInHours / (endHour - startHour) * 100;
     return widthPercents;
   }
 
@@ -32,7 +30,6 @@ export default class Event extends Component {
     } = this.props.dataEvent;
 
     const addZeroIfNeed = (time) => time < 10 ? "0" + time : time;
-
     dateStart = new Date(dateStart);
     dateEnd = new Date(dateEnd);
     const hoursStart = addZeroIfNeed(dateStart.getHours());
@@ -47,12 +44,6 @@ export default class Event extends Component {
       isShowEventToolTip: !this.state.isShowEventToolTip
     })
   }
-  hideEventInfo = () => {
-    /*this.setState({
-      isShowEventToolTip: false
-    })*/
-  }
-
 
   render() {
     const widthPercents = this.calculateWidth();
@@ -97,3 +88,11 @@ export default class Event extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  startAndEndHours: state.startAndEndHours
+})
+
+export default connect(
+  mapStateToProps
+)(Event);

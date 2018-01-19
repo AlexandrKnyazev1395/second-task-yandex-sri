@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
-const START_HOUR = 8;
-const END_HOUR = 23;
+import startAndEndHours from '../../../reducers/startAndEndHours';
 
 class HoursColumn extends Component {
 
-
   makeHours = () => {
+    const { startHour, endHour } = this.props.startAndEndHours;
     let hours = [];
-    for (let i = START_HOUR; i <= END_HOUR; i++) {
+    for (let i = startHour; i <= endHour; i++) {
       let hour = i;
-      if (i === START_HOUR) {
+      if (i === startHour) {
         hour = `${i}.00`
       }
       hours.push(
@@ -28,7 +26,10 @@ class HoursColumn extends Component {
     return (
       <div className="hoursColumn">
         {hours}
-        <CurrentTime height={this.props.scheduleHeight}/>
+        <CurrentTime 
+          height={this.props.scheduleHeight}
+          startAndEndHours={this.props.startAndEndHours}
+        />
       </div>
     )
   }
@@ -41,25 +42,13 @@ class CurrentTime extends Component {
     super(props)
     const now = new Date()
     this.state = {
-      currentTime: now,
-      scrollTopPixels: 0
+      currentTime: now
     }
     this.updateCurrentTimeEveryMinute(now);
   }
 
-  componentDidMount = () => {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
   componentDidUpdate() {
     this.updateCurrentTimeEveryMinute(this.state.currentTime);
-  }
-  
-  handleScroll = (e) => {
-    var scrollTopPixels = window.pageYOffset;
-    this.setState({
-      scrollTopPixels: scrollTopPixels
-    })
   }
 
   updateCurrentTimeEveryMinute = (now) => {
@@ -70,8 +59,10 @@ class CurrentTime extends Component {
   }
 
   getTimeCircleMargin = (hour, minutes) => {
-    let oneHourWidthPercent = 100/(END_HOUR-START_HOUR + 1);
-    let hourMargin = (hour - START_HOUR) * oneHourWidthPercent;
+    const { startHour, endHour } = this.props.startAndEndHours;
+    debugger;
+    let oneHourWidthPercent = 100/(endHour-startHour + 1);
+    let hourMargin = (hour - startHour) * oneHourWidthPercent;
     let minutesMargin = (oneHourWidthPercent * (minutes/60));
     return hourMargin + minutesMargin;
   }
@@ -90,10 +81,11 @@ class CurrentTime extends Component {
   }
 
   render() {
+    const { startHour, endHour } = this.props.startAndEndHours;
     let date = new Date();
     let hour = date.getHours();
     let minutes = date.getMinutes();    
-    if (hour -1  < START_HOUR || hour >= END_HOUR) {
+    if (hour -1  < startHour || hour >= endHour) {
 
       return null;
     }
@@ -115,7 +107,8 @@ class CurrentTime extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    scheduleHeight: state.scheduleHeight
+    scheduleHeight: state.scheduleHeight,
+    startAndEndHours: state.startAndEndHours
 })
 
 export default connect(mapStateToProps)(HoursColumn);

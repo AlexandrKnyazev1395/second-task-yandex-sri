@@ -6,25 +6,25 @@ import HourColumn from './HourColumn'
 import './gridTimeColumn.css'
 
 import { setScheduleHeight } from '../../../../actions/scheduleHeight'
-const START_HOUR = 8;
-const END_HOUR = 23;
 
 class GridTimeColumn extends Component {
 
   findScheduleHeight = (e) => {
     const scheduleHeight = e.clientHeight;
-    this.props.setScheduleHeight(scheduleHeight)
+    this.props.setScheduleHeight(scheduleHeight);
   }
 
   makeHoursGrid = () => {
+    const { startHour, endHour } = this.props.startAndEndHours;
     let hoursColumns = [];
-    for (let i = START_HOUR; i <= END_HOUR + 1; i++) {
+    for (let i = startHour; i <= endHour + 1; i++) {
       hoursColumns.push(
         <HourColumn key={"hour_" +i} hours={{startHour: i-1, endHour: i }} />
       )
     }
     return hoursColumns;
   }
+
   render() {
     const hoursGrid = this.makeHoursGrid();
     return (
@@ -35,11 +35,15 @@ class GridTimeColumn extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  startAndEndHours: state.startAndEndHours
+})
+
 const mapDispatchToProps = {
-  setScheduleHeight: setScheduleHeight
+  setScheduleHeight: setScheduleHeight,
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(GridTimeColumn);

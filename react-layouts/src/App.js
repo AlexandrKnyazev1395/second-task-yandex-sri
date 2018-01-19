@@ -9,7 +9,6 @@ import MainPage from './components/MainPage'
 import { CreateEvent, EditEvent } from './components/Event'
 
 class App extends Component {
-
   render() {
     return (
       <Router>

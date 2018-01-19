@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import TextTruncate from 'react-text-truncate';
 import classNames from 'classnames';
 
 import Event from './Event';
 import EmptyTime from './EmptyTime';
 
-const START_HOUR = 8;
-const END_HOUR = 23;
+const startHour = 8;
+const endHour = 23;
 
-export default class Room extends Component {
+class Room extends Component {
   constructor(props) {
     super(props)
 
@@ -104,6 +105,7 @@ export default class Room extends Component {
   }
 
   calculateEmptyTime = (event, index) => {
+    const { startHour, endHour } = this.props.startAndEndHours;
     const dataEvents = this.props.dataEvents;
     const emptyTime = {
       leftInsert: null,
@@ -114,10 +116,10 @@ export default class Room extends Component {
     const eventDateStart = new Date(event.dateStart);
     const eventDateEnd = new Date(event.dateEnd);
     if (index === 0) {
-      const dayDateStart = new Date(new Date(event.dateStart).setHours(START_HOUR, 0, 0))
+      const dayDateStart = new Date(new Date(event.dateStart).setHours(startHour, 0, 0))
       if (eventDateStart > dayDateStart) {
         let durationInHours = (eventDateStart - dayDateStart) / 1000 / 60 / 60;
-        emptyTime.leftInsert = durationInHours / (END_HOUR - START_HOUR) * 100;
+        emptyTime.leftInsert = durationInHours / (endHour - startHour) * 100;
         emptyTime.emptyTimeStart = dayDateStart;
         emptyTime.emptyTimeEnd = eventDateStart;
       }
@@ -130,17 +132,17 @@ export default class Room extends Component {
       const previousEventDateEnd = new Date(dateEndPr);
       if (dateEndPr !== eventDateStart) {
         let durationInHours = (eventDateStart - previousEventDateEnd) / 1000 / 60 / 60;
-        emptyTime.leftInsert = durationInHours / (END_HOUR - START_HOUR) * 100;
+        emptyTime.leftInsert = durationInHours / (endHour - startHour) * 100;
         emptyTime.emptyTimeStart = previousEventDateEnd;
         emptyTime.emptyTimeEnd = eventDateStart;
       }
     }
 
     if (index === dataEvents.length - 1) {
-      const dayDateEnd = new Date(new Date(event.dateEnd).setHours(END_HOUR, 0, 0))
+      const dayDateEnd = new Date(new Date(event.dateEnd).setHours(endHour, 0, 0))
       if (eventDateEnd < dayDateEnd) {
         let durationInHours = (dayDateEnd - eventDateEnd) / 1000 / 60 / 60;
-        emptyTime.rightInsert = durationInHours / (END_HOUR - START_HOUR) * 100;
+        emptyTime.rightInsert = durationInHours / (endHour - startHour) * 100;
         emptyTime.emptyTimeStart = eventDateEnd;
         emptyTime.emptyTimeEnd = dayDateEnd;
       }
@@ -200,3 +202,11 @@ export default class Room extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  startAndEndHours: state.startAndEndHours
+})
+
+export default connect(
+  mapStateToProps
+)(Room);
