@@ -21,36 +21,13 @@ class App extends Component {
        scrollLeftPixels: 0
     }
   }
-
-  componentDidMount = () => {
-    const scrollLeft = window.pageXOffset;
-    const scrollTop = window.pageYOffset;
-    this.setState({
-      scrollLeftPixels: scrollLeft,
-      scrollTopPixels: scrollTop
-    })
-    window.addEventListener('scroll', this.handleScroll); 
-  }
-
-  handleScroll = () => {
-    const scrollLeft = window.pageXOffset;
-    const scrollTop = window.pageYOffset;
-    this.setState({
-      scrollLeftPixels: scrollLeft,
-      scrollTopPixels: scrollTop
-    })
-  }
   
 
   render() {
-    const scrollPixels = {
-      top: this.state.scrollTopPixels,
-      left: this.state.scrollLeftPixels
-    }
     return (
       <Router>
         <div className="App">
-          <Header scrollPixels={scrollPixels}/>
+          <Header/>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/editEvent" component={EditEvent} />
           <Route exact path="/createEvent" component={CreateEvent} />

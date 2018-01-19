@@ -19,7 +19,7 @@
     z-index: 13;
     width: 100%;
     height: 56px;
-    transition: transform 0.5s linear;
+    transition: top 0.5s linear;
   }
 }
 
