@@ -167,7 +167,7 @@
 
 .dateAndHours .hoursColumn .currentTime .time {
   width: 49px;
-  padding-top: 3px;
+  padding-top: 4px;
   padding-bottom: 4px;
   background: #007DFF;
   border-radius: 100px;
@@ -191,7 +191,6 @@
 .emptyWhite {
   display: none;
 }
-
 @media screen and (max-width: 764px) {
   .emptyWhite  {
     display: block;
