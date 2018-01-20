@@ -9,6 +9,12 @@ npm i
 npm start
 ```
 
+## Адреса
+
+http://localhost:3000/ - главная
+http://localhost:3000/editEvent - редактирование event
+http://localhost:3000/createEvent - создание event
+
 ## Стек технологий
 В ходе выполнения задания для создания компонентов части были использованы React + Redux, стили написаны на чистом css.
 
