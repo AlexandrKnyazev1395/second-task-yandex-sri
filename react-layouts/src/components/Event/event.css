@@ -424,6 +424,7 @@
   right: 0px;
   bottom: 0px;
   background-color: rgba(0,16,33,0.40);
+  z-index: 999;
 }
 
 .eventModal {
